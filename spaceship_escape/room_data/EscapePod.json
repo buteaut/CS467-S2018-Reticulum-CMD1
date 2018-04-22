@@ -1,0 +1,25 @@
+{
+    "room_name": "Escape Pod",
+    "long_description": "This is the long form description of the Escape Pod",
+    "short_description": [
+                          "Escape Pod short 1",
+                          "Escape Pod short 2",
+                          "Escape Pod short 3"
+                          ],
+    "_which_short": 0,
+    "inventory_list": [
+                        {
+                            "description": "this is an alien plant",
+                            "name": "plant"
+                        },
+                        {
+                            "description": "this is the key to the pod",
+                            "name": "key"
+                        }
+                       ],
+    "exit_names": {},
+    "exit_locks": {},
+    "_feature1_keywords": [],
+    "_feature2_keywords": [],
+    "_examinable_objects": {}
+}
