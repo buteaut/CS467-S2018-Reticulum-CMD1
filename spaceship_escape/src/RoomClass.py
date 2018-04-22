@@ -18,7 +18,7 @@ class Room:
     def feature1(self):
         pass
 
-    def feature1(self):
+    def feature2(self):
         pass
 
     def get_name(self):
