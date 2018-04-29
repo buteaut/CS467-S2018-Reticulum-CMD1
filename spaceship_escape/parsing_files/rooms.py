@@ -9,8 +9,4 @@ class Room:
 # Each room inherits from Room class
 class EscapePod(Room):
     def __init__(self):
-        self._description = 'goal is to get here with the necessary items to leave'
-
-class HoldingChamber(Room):
-    def __init__(self):
-        self._description = 'where you initially start the game'
+        self._description = 'inside escape pod:\ngoal is to get here with the necessary items to leave'
