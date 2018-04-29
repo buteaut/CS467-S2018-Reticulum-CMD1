@@ -17,8 +17,8 @@
                        "name": "key"
                        }
                        ],
-    "exit_names": {},
-    "exit_locks": {},
+    "exit_names": ["EVA Prep Chamber", "Space"],
+    "exit_locks": {"EVA Prep Chamber":false, "Space":false},
     "feature1_keywords": [],
     "feature2_keywords": [],
     "examinable_objects": {}

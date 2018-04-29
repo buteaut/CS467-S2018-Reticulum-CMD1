@@ -17,8 +17,8 @@
                        "name": "key"
                        }
                        ],
-    "exit_names": {},
-    "exit_locks": {},
+    "exit_names": ["Loading Dock"],
+    "exit_locks": {"Loading Dock":false},
     "feature1_keywords": [],
     "feature2_keywords": [],
     "examinable_objects": {}

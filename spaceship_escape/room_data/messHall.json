@@ -17,8 +17,8 @@
                        "name": "key"
                        }
                        ],
-    "exit_names": {},
-    "exit_locks": {},
+    "exit_names": ["Crew Sleeping Quarters", "VR Chamber", "Busy Hallway", "Holding Chamber"],
+    "exit_locks": {"Crew Sleeping Quarters":false, "VR Chamber":false, "Busy Hallway":false, "Holding Chamber":false},
     "feature1_keywords": [],
     "feature2_keywords": [],
     "examinable_objects": {}

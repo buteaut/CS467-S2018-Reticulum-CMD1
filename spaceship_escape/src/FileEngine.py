@@ -4,21 +4,23 @@ import json
 
 # define the exact file name and path to where the room data is held
 class _RoomFileNames:
-    _room_names = ["escapePod.json",
-                   "loadingDock.json",
-                   "navControlRoom.json",
-                   "stationControlRoom.json",
-                   "plantLab.json",
-                   "energyGenPlant.json",
-                   "crewSleepingQuarters.json",
-                   "VRChamber.json",
-                   "holdingChamber.json",
-                   "maintenanceRoom.json",
-                   "busyHallway.json",
-                   "EVAPrepChamber.json",
-                   "spaceNearEscapePod.json",
-                   "spaceNearEVAChamber.json",
-                   "messHall.json"]
+    _room_names = ["escapePod.json"
+                   ,"loadingDock.json"
+                   ,"navControlRoom.json"
+                   ,"stationControlRoom.json"
+                   ,"plantLab.json"
+                   ,"energyGenPlant.json"
+                   ,"crewSleepingQuarters.json"
+                   ,"VRChamber.json"
+                   ,"holdingChamber.json"
+                   ,"maintenanceRoom.json"
+                   ,"busyHallway.json"
+                   ,"EVAPrepChamber.json"
+                   ,"spaceNearEscapePod.json"
+                   ,"spaceNearEVAChamber.json"
+                   ,"messHall.json"
+                   ,"space.json"
+                   ]
 
     _room_files_directory = "../room_data/"
 

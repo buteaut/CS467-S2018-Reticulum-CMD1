@@ -1,10 +1,10 @@
 {
-    "room_name": "Holding Chamber",
-    "long_description": "This is the long form description of the Holding Chamber",
+    "room_name": "Space",
+    "long_description": "This is the long form description of the Space",
     "short_description": [
-                          "Holding Chamber short 1",
-                          "Holding Chamber short 2",
-                          "Holding Chamber short 3"
+                          "Space Near EVA Chamber short 1",
+                          "Space Near EVA Chamber short 2",
+                          "Space Near EVA Chamber short 3"
                           ],
     "which_short": 0,
     "inventory_list": [
@@ -17,8 +17,8 @@
                        "name": "key"
                        }
                        ],
-    "exit_names": ["Mess Hall"],
-    "exit_locks": {"Mess Hall":false},
+    "exit_names": ["Space Near Escape Pod"],
+    "exit_locks": {"Space Near Escape Pod": false},
     "feature1_keywords": [],
     "feature2_keywords": [],
     "examinable_objects": {}

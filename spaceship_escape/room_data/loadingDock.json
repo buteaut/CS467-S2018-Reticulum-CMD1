@@ -17,8 +17,8 @@
                        "name": "key"
                        }
                        ],
-    "exit_names": {},
-    "exit_locks": {},
+    "exit_names": ["Maintenance Room", "EVA Prep Chamber", "Escape Pod"],
+    "exit_locks": {"Maintenance Room":false, "EVA Prep Chamber":false, "Escape Pod":false},
     "feature1_keywords": [],
     "feature2_keywords": [],
     "examinable_objects": {}
