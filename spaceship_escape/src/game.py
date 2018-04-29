@@ -4,7 +4,7 @@
 # Description: This is the file where the game class is defined.
 
 import platform, os
-import Room from RoomClass.py
+from RoomClass import Room
 
 
 class Game:
