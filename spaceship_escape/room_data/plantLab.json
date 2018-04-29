@@ -1,0 +1,25 @@
+{
+    "room_name": "Plant Lab",
+    "long_description": "This is the long form description of the Plant Lab",
+    "short_description": [
+                          "Plant Lab short 1",
+                          "Plant Lab short 2",
+                          "Plant Lab short 3"
+                          ],
+    "which_short": 0,
+    "inventory_list": [
+                       {
+                       "description": "this is an alien plant",
+                       "name": "plant"
+                       },
+                       {
+                       "description": "this is the key to the pod",
+                       "name": "key"
+                       }
+                       ],
+    "exit_names": {},
+    "exit_locks": {},
+    "feature1_keywords": [],
+    "feature2_keywords": [],
+    "examinable_objects": {}
+}

@@ -6,7 +6,7 @@
                           "Escape Pod short 2",
                           "Escape Pod short 3"
                           ],
-    "_which_short": 0,
+    "which_short": 0,
     "inventory_list": [
                         {
                             "description": "this is an alien plant",
@@ -19,7 +19,7 @@
                        ],
     "exit_names": {},
     "exit_locks": {},
-    "_feature1_keywords": [],
-    "_feature2_keywords": [],
-    "_examinable_objects": {}
+    "feature1_keywords": [],
+    "feature2_keywords": [],
+    "examinable_objects": {}
 }

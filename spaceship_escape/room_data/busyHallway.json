@@ -1,0 +1,25 @@
+{
+    "room_name": "Busy Hallway",
+    "long_description": "This is the long form description of the Busy Hallway",
+    "short_description": [
+                          "Busy Hallway short 1",
+                          "Busy Hallway short 2",
+                          "Busy Hallway short 3"
+                          ],
+    "which_short": 0,
+    "inventory_list": [
+                       {
+                       "description": "this is an alien plant",
+                       "name": "plant"
+                       },
+                       {
+                       "description": "this is the key to the pod",
+                       "name": "key"
+                       }
+                       ],
+    "exit_names": {},
+    "exit_locks": {},
+    "feature1_keywords": [],
+    "feature2_keywords": [],
+    "examinable_objects": {}
+}

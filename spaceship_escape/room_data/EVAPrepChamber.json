@@ -1,0 +1,25 @@
+{
+    "room_name": "EVA Prep Chamber",
+    "long_description": "This is the long form description of the EVA Prep Chamber",
+    "short_description": [
+                          "EVA Prep Chamber short 1",
+                          "EVA Prep Chamber short 2",
+                          "EVA Prep Chamber short 3"
+                          ],
+    "which_short": 0,
+    "inventory_list": [
+                       {
+                       "description": "this is an alien plant",
+                       "name": "plant"
+                       },
+                       {
+                       "description": "this is the key to the pod",
+                       "name": "key"
+                       }
+                       ],
+    "exit_names": {},
+    "exit_locks": {},
+    "feature1_keywords": [],
+    "feature2_keywords": [],
+    "examinable_objects": {}
+}

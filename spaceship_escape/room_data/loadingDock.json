@@ -1,0 +1,25 @@
+{
+    "room_name": "Loading Dock",
+    "long_description": "This is the long form description of the Loading Dock",
+    "short_description": [
+                          "Loading Dock short 1",
+                          "Loading Dock short 2",
+                          "Loading Dock short 3"
+                          ],
+    "which_short": 0,
+    "inventory_list": [
+                       {
+                       "description": "this is an alien plant",
+                       "name": "plant"
+                       },
+                       {
+                       "description": "this is the key to the pod",
+                       "name": "key"
+                       }
+                       ],
+    "exit_names": {},
+    "exit_locks": {},
+    "feature1_keywords": [],
+    "feature2_keywords": [],
+    "examinable_objects": {}
+}
