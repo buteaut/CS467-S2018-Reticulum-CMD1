@@ -1,5 +1,23 @@
 # define the Room class here
 
+class RoomNames:
+    escapePod               = "Escape Pod"
+    loadingDock             = "Loading Dock"
+    navControlRoom          = "Navigation Control Room"
+    stationControlRoom      = "Station Control Room"
+    plantLab                = "Plant Lab"
+    energyGenPlant          = "Energy Generation Plant"
+    crewSleepingQuarters    = "Crew Sleeping Quarters"
+    VRChamber               = "Virtual Reality Chamber"
+    holdingChamber          = "Holding Chamber"
+    maintenanceRoom         = "Maintenance Room"
+    busyHallway             = "Busy Hallway"
+    EVAPrepChamber          = "EVA Prep Chamber"
+    spaceNearEscapePod      = "Space Near Escape Pod"
+    spaceNearEVAChamber     = "Space Near EVA Chamber"
+    messHall                = "Mess Hall"
+    space                   = "Space"
+
 class Room:
     # constructor
     def __init__(self, name, long_desc, short_desc, whichsht, inven, enames,
@@ -26,7 +44,7 @@ class Room:
 
     def get_long(self):
         return self._long_description
-    
+
     def set_which_short(self, which_short):
         self._which_short = which_short
 
@@ -47,4 +65,3 @@ class Room:
 
     def get_exit_locks(self):
         return self._exit_locks
-
