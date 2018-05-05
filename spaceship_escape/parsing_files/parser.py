@@ -1,23 +1,35 @@
-
 # Imports
 from actions import *
 from rooms import *
+from spell import *
 from itertools import combinations
 
+# List of stop words to remove before parsing
+stop_words = ['ourselves', 'hers', 'between', 'yourself', 'but', 'again', 'there', 'about', 'once', 'during', 'out', 'very', 'having', 'with', 'they', 'own', 'an', 'be', 'some', 'for', 'do', 'its', 'yours', 'such', 'into', 'of', 'most', 'itself', 'other', 'off', 'is', 'am', 'or', 'who', 'as', 'from', 'him', 'each', 'the', 'themselves', 'until', 'below', 'are', 'we', 'these', 'your', 'his', 'through', 'don', 'nor', 'me', 'were', 'her', 'more', 'himself', 'this', 'down', 'should', 'our', 'their', 'while', 'above', 'both', 'to', 'ours', 'had', 'she', 'all', 'no', 'when', 'any', 'before', 'them', 'same', 'and', 'been', 'have', 'in', 'will', 'on', 'does', 'yourselves', 'then', 'that', 'because', 'what', 'over', 'why', 'so', 'can', 'did', 'not', 'now', 'under', 'he', 'you', 'herself', 'has', 'just', 'where', 'too', 'only', 'myself', 'which', 'those', 'i', 'after', 'few', 'whom', 't', 'being', 'if', 'theirs', 'my', 'against', 'a', 'by', 'doing', 'it', 'how', 'further', 'was', 'here', 'than']
+
 # List of words that are relevant to the game
-verbs = ['exit', 'look', 'help', 'inventory', 'savegame', 'loadgame', 'save game', 'load game', 'look at', 'go', 'take', 'pick up', 'grab', 'use']
+verbs = ['exit', 'look', 'help', 'inventory', 'savegame', 'loadgame', 'look at', 'go', 'take', 'pick up', 'grab', 'use']
 items = ['rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard']
-# Feature list not yet determined
-features = ['door']
+features = ['door'] # Not complete
 rooms = ['north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'lab', 'energy generation', 'sleeping quarters', 'vr chamber', 'holding chamber', 'maintenance', 'hallway', 'prep chamber', 'space near escape pod', 'space near eva chamber', 'mess']
+keywords = verbs + items + features + rooms
 
 # Extract essential single and double word commands
 def tokenize(command):
     # All single and double words
-    single_and_double = [' '.join(word) for word in combinations(command.lower().split(), 2)] + command.lower().split()
-    # Find two word combinations that match keywords
-    tokens = [word for word in single_and_double if word in verbs or word in items or word in features or word in rooms]
-    return tokens
+    single_words = [_ for _ in command.lower().split() if _ not in stop_words]
+    double_words = [' '.join(word) for word in combinations(single_words, 2)]
+    single_and_double_words = double_words + single_words
+
+    # Spell correct all tokens with max 1 error
+    spell_corrected_tokens = []
+    for token in single_and_double_words:
+        possible_corrections = edits(token)
+        for possible_correction in possible_corrections:
+            if possible_correction in keywords:
+                spell_corrected_tokens.append(possible_correction)
+
+    return spell_corrected_tokens
 
 # Dictionary that contains verbs for keys and associated functions as values
 actions = {}
@@ -42,11 +54,8 @@ def do_action(command, Item=None, Room=None, Feature=None):
 # Create test room instance
 escape_pod = EscapePod()
 
-# Parser
-end_game = False
-
-# Continue running until command 'exit'
-while not end_game:
+# Parser - Continue running until command 'exit'
+while True:
     # Get user input
     command = input('\ntype a command: ')
 
@@ -61,7 +70,7 @@ while not end_game:
 
     for token in tokens:
         if token in verbs:
-            # Differentitates between 'look' and 'look at'
+            # Prevents 'look' from replacing 'look at'
             if not verb:
                 verb = token
         elif token in items:
@@ -71,16 +80,17 @@ while not end_game:
         elif token in rooms:
             room = token
 
-    print()
-    print(tokens)
+    # Display metadata
+    print('\n' + str(tokens))
     print('verb:', verb)
     print('item:', item)
     print('feature:', feature)
     print('room:', room, '\n')
 
     # Call do_action with verb and location
-    if 'exit' in tokens and len(tokens) == 1:
-        end_game = True
+    if 'exit' in tokens:
+        # Exit loop and end game
+        break
     elif verb:
         do_action(verb, item, escape_pod, feature)
     else:

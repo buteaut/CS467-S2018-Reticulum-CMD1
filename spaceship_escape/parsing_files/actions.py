@@ -35,7 +35,10 @@ def look_at(Item, Room, Feature):
 # Associated with the 'go' command
 # Moves player to designated area
 def go(Item, Room, Feature):
-    print('This will move character to a different room')
+    if not Room:
+        print('This will move character to a different room')
+    else:
+        print('This will move character to', Room.get_name())
 
 # Associated with the 'take' command
 # Adds item to inventory
