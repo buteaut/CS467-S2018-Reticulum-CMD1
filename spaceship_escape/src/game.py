@@ -5,6 +5,8 @@
 
 import platform, os
 from RoomClass import Room
+from FileEngine import FileReader
+from ItemClass import Item
 
 
 class Game:
@@ -13,11 +15,13 @@ class Game:
         self.map = {"00":{"name":"Void"}, "01":{"name":"Void"}, "02":{"name":"Void"}, "03":{"name":"Void"}, "04":{"name":"Void"}, "05":{"name": "Space", "description": 0, "inventory": []}, "06":{"name": "Space Near Escape Pod", "description": 0, "inventory": []},
                        "10":{"name":"Void"}, "11":{"name": "VR Chamber", "description": 0, "inventory": []}, "12":{"name":"Void"}, "13":{"name":"Void"}, "14":{"name": "Plant Lab", "description": 0, "inventory": []}, "15":{"name": "Space Near EVA Chamber", "description": 0, "inventory": []}, "16":{"name": "Escape Pod", "description": 0, "inventory": []},
                        "20":{"name": "Crew Sleeping Quarters", "description": 0, "inventory": []}, "21":{"name": "Mess Hall", "description": 0, "inventory": []}, "22":{"name": "Busy Hallway", "description": 0, "inventory": []}, "23":{"name": "Station Control Room", "description": 0, "inventory": []}, "24":{"name": "Energy Generation Plant", "description": 0, "inventory": []}, "25":{"name": "EVA Prep Chamber", "description": 0, "inventory": []}, "26":{"name": "Loading Dock", "description": 0, "inventory": []},
-                       "30":{"name":"Void"}, "31":{"name": "Holding Chamber", "visited": False, "inventory": [], "short": 0}, "32":{"name":"Void"}, "33":{"name": "Navigation Control Room", "visited": False, "inventory": [], "short": 0}, "34":{"name":"Void"}, "35":{"name":"Void"}, "36":{"name": "Maintenance Room", "visited": False, "inventory": [], "short": 0}}  # 7x4 array of rooms}
+                       "30":{"name":"Void"}, "31":{"name": "Holding Chamber", "description": 0, "inventory": [], "short": 0}, "32":{"name":"Void"}, "33":{"name": "Navigation Control Room", "description": 0, "inventory": [], "short": 0}, "34":{"name":"Void"}, "35":{"name":"Void"}, "36":{"name": "Maintenance Room", "description": 0, "inventory": [], "short": 0}}  # 7x4 array of rooms
         self.end_flag = {"rations":False, "map":False}
         self.xCoord = 0  # x-coordinate for map array
         self.yCoord = 0  # y-coordinate for map array
         self.current_room = None
+        self.rooms = FileReader()
+        self.roomDict = self.rooms.getRoomsFromFiles()
 
     def menu(self):
         print("Welcome to Reticulum\n\n")
@@ -87,35 +91,7 @@ class Game:
         pass
 
     #format text to taste when testing
-    def print(self, description):
-        #pass
-        self.clearscreen()
-        print(self.current_room.get_name())
-        #need information on Room class get_exit_names output
-        #to make a print statement of the different directions and where they lead
-
-        if description == 0:
-            print(self.current_room.get_long())
-        else:
-            self.current_room.set_which_short(description-1)
-            print(self.current_room.get_short())
-
-    def print(self, description, event1):
-        # pass
-        self.clearscreen()
-        print(self.current_room.get_name())
-        # need information on Room class get_exit_names output
-        # to make a print statement of the different directions and where they lead
-        if description == 0:
-            print(self.current_room.get_long())
-        else:
-            self.current_room.set_which_short(description-1)
-            print(self.current_room.get_short())
-        print(event1)
-
-
-
-    def print(self, description, event1, event2):
+    def print(self, description, event1 = None, event2 = None):
         # pass
         self.clearscreen()
         print(self.current_room.get_name())
@@ -127,8 +103,10 @@ class Game:
         else:
             self.current_room.set_which_short(description-1)
             print(self.current_room.get_short())
-        print(event1)
-        print(event2)
+        if event1 is not None:
+            print(event1)
+        if event2 is not None:
+            print(event2)
 
     def end_game(self):
         pass
@@ -137,7 +115,7 @@ class Game:
         pass
 
     def load_room(self, room):
-        pass
+        self.current_room = self.roomDict[room]
 
     def clearscreen(self):
         if platform.system() == "Windows":
@@ -146,7 +124,11 @@ class Game:
             os.system('clear')
 
     def startup(self):
-        pass
+        self.xCoord = 3
+        self.yCoord = 1
+        self.load_room(self.map["31"]["name"])
+        self.print(0)
+        self.map["31"]["description"] = 1
 
     def help(self):
         pass
