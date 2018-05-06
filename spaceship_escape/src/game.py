@@ -12,8 +12,8 @@ from ItemClass import Item
 class Game:
     def __init__(self):
         self.inventory = [None]
-        self.map = {"00":{"name":"Void"}, "01":{"name":"Void"}, "02":{"name":"Void"}, "03":{"name":"Void"}, "04":{"name":"Void"}, "05":{"name": "Space", "description": 0, "inventory": []}, "06":{"name": "Space Near Escape Pod", "description": 0, "inventory": []},
-                       "10":{"name":"Void"}, "11":{"name": "VR Chamber", "description": 0, "inventory": []}, "12":{"name":"Void"}, "13":{"name":"Void"}, "14":{"name": "Plant Lab", "description": 0, "inventory": []}, "15":{"name": "Space Near EVA Chamber", "description": 0, "inventory": []}, "16":{"name": "Escape Pod", "description": 0, "inventory": []},
+        self.map = {"00":{"name":"Void"}, "01":{"name": "Void"}, "02":{"name": "Void"}, "03":{"name": "Void"}, "04":{"name": "Void"}, "05":{"name": "Space", "description": 0, "inventory": []}, "06":{"name": "Space Near Escape Pod", "description": 0, "inventory": []},
+                       "10":{"name":"Void"}, "11":{"name": "VR Chamber", "description": 0, "inventory": []}, "12":{"name": "Void"}, "13":{"name": "Void"}, "14":{"name": "Plant Lab", "description": 0, "inventory": []}, "15":{"name": "Space Near EVA Chamber", "description": 0, "inventory": []}, "16":{"name": "Escape Pod", "description": 0, "inventory": []},
                        "20":{"name": "Crew Sleeping Quarters", "description": 0, "inventory": []}, "21":{"name": "Mess Hall", "description": 0, "inventory": []}, "22":{"name": "Busy Hallway", "description": 0, "inventory": []}, "23":{"name": "Station Control Room", "description": 0, "inventory": []}, "24":{"name": "Energy Generation Plant", "description": 0, "inventory": []}, "25":{"name": "EVA Prep Chamber", "description": 0, "inventory": []}, "26":{"name": "Loading Dock", "description": 0, "inventory": []},
                        "30":{"name":"Void"}, "31":{"name": "Holding Chamber", "description": 0, "inventory": [], "short": 0}, "32":{"name":"Void"}, "33":{"name": "Navigation Control Room", "description": 0, "inventory": [], "short": 0}, "34":{"name":"Void"}, "35":{"name":"Void"}, "36":{"name": "Maintenance Room", "description": 0, "inventory": [], "short": 0}}  # 7x4 array of rooms
         self.end_flag = {"rations":False, "map":False}
@@ -60,22 +60,25 @@ class Game:
         #print("direction 1", direction[1])
         newX = self.xCoord + direction[0]
         newY = self.yCoord + direction[1]
-        #print("newX", newX, "newY", newY)
-        xy = str(newX) + str(newY)
-        des = 0
-        if self.map[xy]["name"] == "Void":
+        # print("newX", newX, "newY", newY)
+        if(newX > 3 or newX < 0 or newY < 0 or newY > 6):
             print("You cannot travel to the void")
         else:
-            print(self.map[xy]["name"])
-            self.xCoord = newX
-            self.yCoord = newY
-            self.load_room(self.map[xy]["name"])
-            if self.map[xy]["description"] == 0:
-                self.map[xy]["inventory"] = self.current_room.get_inventory()
-                self.map[xy]["description"] = 1
-                self.print(0)
+            xy = str(newX) + str(newY)
+            des = 0
+            if self.map[xy]["name"] == "Void":
+                print("You cannot travel to the void")
             else:
-                self.print(self.map[xy]["description"])
+                print(self.map[xy]["name"])
+                self.xCoord = newX
+                self.yCoord = newY
+                self.load_room(self.map[xy]["name"])
+                if self.map[xy]["description"] == 0:
+                    self.map[xy]["inventory"] = self.current_room.get_inventory()
+                    self.map[xy]["description"] = 1
+                    self.print(0)
+                else:
+                    self.print(self.map[xy]["description"])
 
 
     def use_item(self, item, used_with):
@@ -90,7 +93,7 @@ class Game:
     def load(self):
         pass
 
-    #format text to taste when testing
+    # format text to taste when testing
     def print(self, description, event1 = None, event2 = None):
         # pass
         self.clearscreen()
