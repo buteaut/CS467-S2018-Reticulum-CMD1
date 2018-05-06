@@ -30,7 +30,7 @@ class _RoomFileNames:
 # internal class _RoomFileNames. Any change made to the names and or directory
 # structure of the Room data files must be reflected in the _RoomFileNames class
 class FileReader:
-    def getRoomsFromFiles():
+    def getRoomsFromFiles(self):
         rooms_dict = {}
         for fname in _RoomFileNames._room_names:
             f = open(_RoomFileNames._room_files_directory + fname, "r")
