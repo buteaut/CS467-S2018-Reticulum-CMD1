@@ -1,8 +1,8 @@
 {
     "room_name": "Energy Generation Plant",
-    "long_description": "This is the long form description of the Energy Generation Plant",
+    "long_description": "Upon entering this space you are immediately greeted by a low buzzing sounds and a luminous green glow emanating from five tall pilar-like structures. You are nowhere else but the ships's Energy Generation Plant. It is here that the massive amounts of energy needed to traverse the galaxy, and keep the aliens alive and comfortable, is generated. Within each of the glowing pillars is a Glubtomuim reactor. Using nothing but save, abundant, every day Glubtomium, these devices generate all the power the aliens will ever need. Maybe don't stand too close to them OK? Directly behind you is the passage back to the Station Control Room. Across the room is a heavy door labeled 'EVA'. On the wall across from the Glubtomium reactors is a much smaller door. On the front of this smaller door is a picture of what reminds you of a cactus on Earth, maybe it's a passage to New Mexico!",
     "short_description": [
-                          "Energy Generation Plant short 1",
+                          "You are in the Energy Generation Plant. Amid the glow of the Glubtomium reactors you see the two exits. Exit one, the large door labeled 'EVA', and exit two, the small door with the 'cactus' on it.",
                           "Energy Generation Plant short 2",
                           "Energy Generation Plant short 3"
                           ],
@@ -23,5 +23,3 @@
     "feature2_keywords": [],
     "examinable_objects": {}
 }
-
-
