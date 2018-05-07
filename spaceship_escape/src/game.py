@@ -7,7 +7,7 @@ import platform, os
 from RoomClass import Room
 from FileEngine import FileReader
 from ItemClass import Item
-
+from ParserClass import *
 
 class Game:
     def __init__(self):
@@ -23,30 +23,53 @@ class Game:
         self.rooms = FileReader()
         self.roomDict = self.rooms.getRoomsFromFiles()
 
+        # Dictionary that contains verbs for keys and associated functions as values
+        self.actions = {
+            'new game': self.startup,
+            'look': self.look,
+            'help': self.help,
+            'inventory': self.get_inventory,
+            'savegame': self.save,
+            'save game': self.save,
+            'loadgame': self.load,
+            'load game': self.load,
+            'look at': self.look_at,
+            'go': self.travel,
+            'take': self.take,
+            'pick up': self.take,
+            'grab': self.take,
+            'use': self.use_item,
+            'exit': self.exit_game
+        }
+
     def menu(self):
-        print("Welcome to Reticulum\n\n")
-        print("1) New Game")
-        print("2) Load Game")
-        print("3) Walkthrough")
-        print("4) Exit")
+        print("\nWelcome to Reticulum\n")
+        # print("1) New Game")
+        # print("2) Load Game")
+        # print("3) Walkthrough")
+        # print("4) Exit")
 
-        choice = int(input("Option number:"))
-        options = [1, 2, 3, 4]
-        while choice not in options:
-            print("You choose" + str(choice))
-            choice = int(input("Please enter the number of your choice"))
+        print("Do you want to start a new game, load a game, walkthrough, or exit?")
+        choice = input("Type your command: ")
+        # choice = int(input("Option number:"))
+        # options = [1, 2, 3, 4]
+        # while choice not in options:
+        #     print("You choose" + str(choice))
+        #     choice = int(input("Please enter the number of your choice"))
 
-        if choice == 1:
-            self.startup()
+        self.parse(choice)
 
-        elif choice == 2:
-            self.load()
+        # if choice == 1:
+        #     self.startup()
 
-        elif choice == 3:
-            self.walkthrough()
+        # elif choice == 2:
+        #     self.load()
 
-        else:
-            exit(0)
+        # elif choice == 3:
+        #     self.walkthrough()
+
+        # else:
+        #     exit(0)
 
     def move_item(self, item, location_taken, location_put):
         pass
@@ -84,8 +107,10 @@ class Game:
     def use_item(self, item, used_with):
         pass
 
-    def parse(self):
-        pass
+    def parse(self, command):
+        parser = Parser()
+        tokens = parser.tokenize(command)
+        print(tokens)
 
     def save(self):
         pass
@@ -138,3 +163,15 @@ class Game:
 
     def walkthrough(self):
         pass
+
+    def get_inventory(self):
+        pass
+
+    def look_at(self):
+        pass
+
+    def take(self):
+        pass
+
+    def exit_game(self):
+        exit(0)

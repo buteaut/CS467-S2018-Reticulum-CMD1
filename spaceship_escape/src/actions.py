@@ -1,3 +1,5 @@
+
+
 # Associated with 'look' command
 # Displays short description of current room
 def look(Item, Room, Feature):
