@@ -6,6 +6,12 @@ class Item:
         self._name = name
         self._description = desc
 
+    def toDict(self):
+        d = {}
+        d['name'] = self._name
+        d['description'] = self._description
+        return d
+
     def get_name(self):
         return self._name
 
@@ -14,4 +20,3 @@ class Item:
 
     def use(self):
         pass
-

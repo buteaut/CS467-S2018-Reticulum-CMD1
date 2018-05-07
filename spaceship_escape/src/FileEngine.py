@@ -43,7 +43,7 @@ class GameSaver:
         gameEndFlag = game.end_flag
         gameXCoord = game.xCoord
         gameYCoord = game.yCoord
-        gameCurrentRoom = game.current_room
+        gameCurrentRoom = game.current_room.toDict()
 
         # create the gameDict as a pseudo game object
         gameDict['inventory'] = gameInventory
@@ -84,7 +84,23 @@ class GameSaver:
         gameEndFlag = gameDict['end_flag']
         gameXCoord = gameDict['xCoord']
         gameYCoord = gameDict['yCoord']
-        gameCurrentRoom = gameDict['current_room']
+
+        currRoom = gameDict['current_room']
+        currRoomInven = []
+        for i in range(0, len(currRoom['inventory'])):
+            currRoomInven.append(Item(currRoom["inventory"][i]["name"],
+                                      currRoom["inventory"][i]["description"]))
+
+        gameCurrentRoom = Room(currRoom['name'],
+                               currRoom['long'],
+                               currRoom['short'],
+                               currRoom['which_short'],
+                               currRoomInven,
+                               currRoom['exits'],
+                               currRoom['locks'],
+                               currRoom['feature1keys'],
+                               currRoom['feature2keys'],
+                               currRoom['examinable_objects'])
 
         game.inventory = gameInventory
         game.map = gameMap

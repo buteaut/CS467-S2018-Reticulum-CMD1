@@ -33,6 +33,23 @@ class Room:
         self._feature2_keywords = f2keys
         self._examinable_objects = objs
 
+    def toDict(self):
+        d = {}
+        d['name'] = self._room_name
+        d['long'] = self._long_description
+        d['short'] = self._short_description
+        d['which_short'] = self._which_short
+        d['inventory'] = []
+        for i in range(0, len(self._inventory_list)):
+            d['inventory'].append(self._inventory_list[i].toDict())
+        d['exits'] = self._exit_names
+        d['locks'] = self._exit_locks
+        d['feature1keys'] = self._feature1_keywords
+        d['feature2keys'] = self._feature2_keywords
+        d['examinable_objects'] = self._examinable_objects
+        return d
+
+
     def feature1(self):
         pass
 
