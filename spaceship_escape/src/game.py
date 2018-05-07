@@ -8,7 +8,7 @@ from RoomClass import Room
 from FileEngine import FileReader
 from FileEngine import GameSaver
 from ItemClass import Item
-from ParserClass import *
+from ParserClass import Parser
 
 class Game:
     def __init__(self):
@@ -111,7 +111,15 @@ class Game:
     def parse(self, command):
         parser = Parser()
         tokens = parser.tokenize(command)
-        print(tokens)
+        parsed_tokens = parser.parse_tokens(tokens)
+
+        # To help with testing, DELETE before submitting
+        print('\nFor testing only:')
+        for key in parsed_tokens:
+            if parsed_tokens[key]:
+                print(key + ': ' + parsed_tokens[key])
+        print()
+
 
     def save(self):
         pass
