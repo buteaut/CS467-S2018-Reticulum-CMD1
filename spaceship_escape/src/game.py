@@ -6,6 +6,7 @@
 import platform, os
 from RoomClass import Room
 from FileEngine import FileReader
+from FileEngine import GameSaver
 from ItemClass import Item
 from ParserClass import *
 
