@@ -24,7 +24,7 @@ class Game:
         self.rooms = FileReader()
         self.roomDict = self.rooms.getRoomsFromFiles()
 
-        # Dictionary that contains verbs for keys and associated functions as values
+        # dictionary maps verbs to associated functions
         self.actions = {
             'new game': self.startup,
             'look': self.look,
@@ -40,37 +40,34 @@ class Game:
             'pick up': self.take,
             'grab': self.take,
             'use': self.use_item,
-            'exit': self.exit_game
+            'exit': self.exit_game,
+            'walkthrough': self.walkthrough
         }
 
     def menu(self):
+        # prompt player
         print("\nWelcome to Reticulum\n")
-        # print("1) New Game")
-        # print("2) Load Game")
-        # print("3) Walkthrough")
-        # print("4) Exit")
+        print('What would you like to do?')
+        print('New game')
+        print('Load game')
+        print('Walkthrough')
+        print('Exit')
 
-        print("Do you want to start a new game, load a game, walkthrough, or exit?")
-        choice = input("Type your command: ")
-        # choice = int(input("Option number:"))
-        # options = [1, 2, 3, 4]
-        # while choice not in options:
-        #     print("You choose" + str(choice))
-        #     choice = int(input("Please enter the number of your choice"))
+        # parse player's input
+        command = input('\nType your command: ')
+        choice = self.parse(command)
 
-        self.parse(choice)
+        # helps with testing, DELETE before submitting
+        print('\nKeywords parsed (for demonstration only):')
+        for key in choice:
+            if choice[key]:
+                print(key + ': ' + choice[key])
+        print()
 
-        # if choice == 1:
-        #     self.startup()
+        # call method based on parsed verb if one of menu options
+        if choice['verb'] in ['new game', 'load game', 'walkthrough', 'exit']:
+            self.actions[choice['verb']]()
 
-        # elif choice == 2:
-        #     self.load()
-
-        # elif choice == 3:
-        #     self.walkthrough()
-
-        # else:
-        #     exit(0)
 
     def move_item(self, item, location_taken, location_put):
         pass
@@ -108,18 +105,15 @@ class Game:
     def use_item(self, item, used_with):
         pass
 
+    # parses the verb, item, room, and features from player's input
+    # requires a string
+    # returns a dictionary of parsed tokens
     def parse(self, command):
         parser = Parser()
         tokens = parser.tokenize(command)
         parsed_tokens = parser.parse_tokens(tokens)
 
-        # To help with testing, DELETE before submitting
-        print('\nFor testing only:')
-        for key in parsed_tokens:
-            if parsed_tokens[key]:
-                print(key + ': ' + parsed_tokens[key])
-        print()
-
+        return parsed_tokens
 
     def save(self):
         pass

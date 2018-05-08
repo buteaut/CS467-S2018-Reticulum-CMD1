@@ -8,7 +8,7 @@ from game import Game
 #from item import Item
 #import platform, os
 
-print("Test test")
+# print("Test test")
 
 #itemTest = Item("Name", "This is the description")
 
