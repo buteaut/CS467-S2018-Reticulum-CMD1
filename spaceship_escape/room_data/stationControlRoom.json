@@ -1,8 +1,8 @@
 {
     "room_name": "Station Control Room",
-    "long_description": "This is the long form description of the Station Control Room",
+    "long_description": "You have found your way into the Station Control Room. As you begin to look around you notice a vast array of monitoring screens. Information is displayed through a constantly updating series of graphs and charts. Some display information about the current composition of the ships air. Others show information regarding supply levels and other vital statistics about the ship and crew. Below what seems to be the main information screen is a series are large buttons. One button says 'Alert Crew' while the other says 'Suspend Gravity'. Next to the entrance to the Station Control Room from the Busy Hallway is a short passageway way marked 'Navigation'. Directly across the room is a door labeled 'E-Gen Plant'.",
     "short_description": [
-                          "Station Control Room short 1",
+                          "You are in the Station Control Room. On the main control panel is an 'Alert Crew' and a 'Suspend Gravity' button. There are three exits from this room. The first leads to the Busy Hallway, second to the Navigation Control Room, and the third to the Energy Generation Plant.",
                           "Station Control Room short 2",
                           "Station Control Roomr short 3"
                           ],
