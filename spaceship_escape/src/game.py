@@ -52,6 +52,7 @@ class Game:
         print('Load game')
         print('Walkthrough')
         print('Exit')
+        print('Demo')
 
         # parse player's input
         command = input('\nType your command: ')
@@ -67,7 +68,20 @@ class Game:
         # call method based on parsed verb if one of menu options
         if choice['verb'] in ['new game', 'load game', 'walkthrough', 'exit']:
             self.actions[choice['verb']]()
+        elif choice['verb'] in ['demo']:
+            print("# Type a command using one of these verbs ('help', 'take', 'look at', 'inventory', 'walkthrough')")
+            print("# Include a noun such as ('rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard')")
+            print("# Include a room such as ('north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'lab', 'energy generation', 'sleeping quarters', 'vr chamber', 'holding chamber')")
+            print('# "Exit" ends the loop')
+            print("\n# ex. 'Take the plant to the escape pod' or 'LOOKat th loding dock for the kyy' - spelling errors intentional!")
 
+            while(True):
+                command = input('\nType a sentence: ')
+                choice = self.parse(command)
+                if choice['verb'] in ['help', 'take', 'look at', 'inventory', 'walkthrough']:
+                    self.actions[choice['verb']](choice)
+                elif choice['verb'] in ['exit']:
+                    break
 
     def move_item(self, item, location_taken, location_put):
         pass
@@ -161,20 +175,26 @@ class Game:
         self.print(0)
         self.map["31"]["description"] = 1
 
-    def help(self):
-        pass
+    def help(self, parsed_tokens):
+        print('\nhelp was called')
+        print('this is the dictionary sent with it', parsed_tokens)
 
-    def walkthrough(self):
-        pass
+    def walkthrough(self, parsed_tokens):
+        print('\nwalkthrough was called')
+        print('this is the dictionary sent with it', parsed_tokens)
 
-    def get_inventory(self):
-        pass
+    def get_inventory(self, parsed_tokens):
+        print('\nget_inventory was called')
+        print('this is the dictionary sent with it', parsed_tokens)
 
-    def look_at(self):
-        pass
+    def look_at(self, parsed_tokens):
+        print('\nlook_at was called')
+        print('this is the dictionary sent with it', parsed_tokens)
 
-    def take(self):
-        pass
+    def take(self, parsed_tokens):
+        print('\ntake was called')
+        print('this is the dictionary sent with it', parsed_tokens)
 
-    def exit_game(self):
+    def exit_game(self, parsed_tokens):
         exit(0)
+
