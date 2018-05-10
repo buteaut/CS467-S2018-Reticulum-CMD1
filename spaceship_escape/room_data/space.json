@@ -17,8 +17,8 @@
                        "name": "key"
                        }
                        ],
-    "exit_names": ["Space Near Escape Pod"],
-    "exit_locks": {"Space Near Escape Pod": false},
+  "exit_names": {"south":  "space near eva chamber", "east": "Space Near Escape Pod"},
+    "exit_locks": {"south":  false, "east": false},
     "feature1_keywords": [],
     "feature2_keywords": [],
     "examinable_objects": {}

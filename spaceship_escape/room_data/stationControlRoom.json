@@ -17,8 +17,8 @@
                        "name": "key"
                        }
                        ],
-    "exit_names": ["Busy Hallway", "Navigation Control Room", "Energy Generation Plant"],
-    "exit_locks": {"Busy Hallway":false, "Navigation Control Room":false, "Energy Generation Plant":false},
+    "exit_names": {"west": "Busy Hallway", "south": "Navigation Control Room", "east": "Energy Generation Plant"},
+    "exit_locks": {"west":false, "south":false, "east":false},
     "feature1_keywords": [],
     "feature2_keywords": [],
     "examinable_objects": {}

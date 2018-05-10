@@ -17,8 +17,8 @@
                        "name": "key"
                        }
                        ],
-    "exit_names": ["Mess Hall"],
-    "exit_locks": {"Mess Hall":false},
+  "exit_names": { "south": "Mess Hall" },
+    "exit_locks": {"south":false},
     "feature1_keywords": [],
     "feature2_keywords": [],
     "examinable_objects": {}

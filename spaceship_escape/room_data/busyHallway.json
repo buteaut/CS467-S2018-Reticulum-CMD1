@@ -17,8 +17,8 @@
                        "name": "key"
                        }
                        ],
-    "exit_names": ["Mess Hall", "Station Control Room"],
-    "exit_locks": {"Mess Hall":false, "Station Control Room":false},
+    "exit_names": {"west": "Mess Hall", "east": "Station Control Room"},
+    "exit_locks": {"west":false, "east":false},
     "feature1_keywords": [],
     "feature2_keywords": [],
     "examinable_objects": {}
