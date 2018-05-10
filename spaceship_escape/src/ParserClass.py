@@ -28,7 +28,6 @@ class Parser:
         double_words = [' '.join(word) for word in combinations(single_words, 2)]
         single_and_double_words = double_words + single_words
 
-        print(single_and_double_words)
         # spell correct all tokens with max 1 error
         spell_corrected_tokens = []
         for token in single_and_double_words:
