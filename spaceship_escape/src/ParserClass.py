@@ -36,7 +36,7 @@ class Parser:
                 for possible_correction in possible_corrections:
                     if possible_correction in self.keywords:
                         spell_corrected_tokens.append(possible_correction)
-            # handle single letter directions
+            # single letter directions should never be spell corrected
             elif token in ['e', 'w', 's', 'n']:
                 spell_corrected_tokens.append(token)
 
@@ -64,6 +64,15 @@ class Parser:
             'room': None
         }
 
+        # convert two-word names to three-word names
+        room_names = {
+            'navigation control': 'navigation control room',
+            'station control': 'station control room',
+            'energy generation': 'energy generation plant',
+            'sleeping quarters': 'crew sleeping quarters',
+            'prep chamber': 'EVA prep chamber'
+        }
+
         # find verb, item, feature, location from list of tokens
         for token in tokens:
             if token in self.verbs and not parsed_tokens['verb']:
@@ -74,5 +83,8 @@ class Parser:
                 parsed_tokens['feature'] = token
             elif token in self.rooms and not parsed_tokens['room']:
                 parsed_tokens['room'] = token
+                if parsed_tokens['room'] in room_names:
+                    # two-word names to three-word names 
+                    parsed_tokens['room'] = room_names[parsed_tokens['room']]
 
         return parsed_tokens
