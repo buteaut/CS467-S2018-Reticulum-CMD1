@@ -5,13 +5,20 @@ import string
 class Parser:
     def __init__(self):
         # list of stop words to remove before parsing
-        self.stop_words = ['ourselves', 'hers', 'between', 'yourself', 'but', 'again', 'there', 'about', 'once', 'during', 'out', 'very', 'having', 'with', 'they', 'own', 'an', 'be', 'some', 'for', 'do', 'its', 'yours', 'such', 'into', 'of', 'most', 'itself', 'other', 'off', 'is', 'am', 'or', 'who', 'as', 'from', 'him', 'each', 'the', 'themselves', 'until', 'below', 'are', 'we', 'these', 'your', 'his', 'through', 'don', 'nor', 'me', 'were', 'her', 'more', 'himself', 'this', 'down', 'should', 'our', 'their', 'while', 'above', 'both', 'to', 'ours', 'had', 'she', 'all', 'no', 'when', 'any', 'before', 'them', 'same', 'and', 'been', 'have', 'in', 'will', 'on', 'does', 'yourselves', 'then', 'that', 'because', 'what', 'over', 'why', 'so', 'can', 'did', 'not', 'now', 'under', 'he', 'you', 'herself', 'has', 'just', 'where', 'too', 'only', 'myself', 'which', 'those', 'i', 'after', 'few', 'whom', 't', 'being', 'if', 'theirs', 'my', 'against', 'a', 'by', 'doing', 'it', 'how', 'further', 'was', 'here', 'than']
+        self.stop_letters = list(string.ascii_lowercase)
+
+        # include single letters not related to directions
+        for letter in self.stop_letters:
+            if letter in ['n', 's', 'e', 'w']:
+                self.stop_letters.remove(letter)
+
+        self.stop_words = self.stop_letters + ['ourselves', 'hers', 'between', 'yourself', 'but', 'again', 'there', 'about', 'once', 'during', 'out', 'very', 'having', 'with', 'they', 'own', 'an', 'be', 'some', 'for', 'do', 'its', 'yours', 'such', 'into', 'of', 'most', 'itself', 'other', 'off', 'is', 'am', 'or', 'who', 'as', 'from', 'him', 'each', 'the', 'themselves', 'until', 'below', 'are', 'we', 'these', 'your', 'his', 'through', 'don', 'nor', 'me', 'were', 'her', 'more', 'himself', 'this', 'down', 'should', 'our', 'their', 'while', 'above', 'both', 'to', 'ours', 'had', 'she', 'all', 'no', 'when', 'any', 'before', 'them', 'same', 'and', 'been', 'have', 'in', 'will', 'on', 'does', 'yourselves', 'then', 'that', 'because', 'what', 'over', 'why', 'so', 'can', 'did', 'not', 'now', 'under', 'he', 'you', 'herself', 'has', 'just', 'where', 'too', 'only', 'myself', 'which', 'those', 'i', 'after', 'few', 'whom', 't', 'being', 'if', 'theirs', 'my', 'against', 'a', 'by', 'doing', 'it', 'how', 'further', 'was', 'here', 'than']
 
         # list of words that are relevant to the game
         self.verbs = ['exit', 'look', 'help', 'inventory', 'savegame', 'loadgame', 'save game', 'load game', 'look at', 'go', 'take', 'pick up', 'grab', 'use', 'new game', 'walkthrough', 'demo']
         self.items = ['rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard']
         self.features = ['door'] # Not complete
-        self.rooms = ['north', 'n', 'south', 's', 'east', 'e', 'west', 'w', 'escape pod', 'loading dock', 'navigation control room', 'station control room', 'plant lab', 'energy generation plant', 'crew sleeping quarters', 'virtual reality chamber', 'holding chamber', 'maintenance room', 'busy hallway', 'eva prep chamber', 'space', 'space near escape pod', 'space near eva chamber', 'mess hall']
+        self.rooms = ['e', 'w', 's', 'n', 'north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'lab', 'energy generation', 'sleeping quarters', 'vr chamber', 'holding chamber', 'maintenance', 'hallway', 'prep chamber', 'space near escape pod', 'space near eva chamber', 'mess']
         self.keywords = self.verbs + self.items + self.features + self.rooms
 
     # parse essential keywords from command
@@ -21,13 +28,18 @@ class Parser:
         double_words = [' '.join(word) for word in combinations(single_words, 2)]
         single_and_double_words = double_words + single_words
 
+        print(single_and_double_words)
         # spell correct all tokens with max 1 error
         spell_corrected_tokens = []
         for token in single_and_double_words:
-            possible_corrections = self.edits(token)
-            for possible_correction in possible_corrections:
-                if possible_correction in self.keywords:
-                    spell_corrected_tokens.append(possible_correction)
+            if token not in ['e', 'w', 's', 'n']:
+                possible_corrections = self.edits(token)
+                for possible_correction in possible_corrections:
+                    if possible_correction in self.keywords:
+                        spell_corrected_tokens.append(possible_correction)
+            # handle single letter directions
+            elif token in ['e', 'w', 's', 'n']:
+                spell_corrected_tokens.append(token)
 
         return spell_corrected_tokens
 
