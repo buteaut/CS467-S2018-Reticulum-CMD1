@@ -11,7 +11,7 @@ class Parser:
         self.verbs = ['exit', 'look', 'help', 'inventory', 'savegame', 'loadgame', 'save game', 'load game', 'look at', 'go', 'take', 'pick up', 'grab', 'use', 'new game', 'walkthrough', 'demo']
         self.items = ['rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard']
         self.features = ['door'] # Not complete
-        self.rooms = ['north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'lab', 'energy generation', 'sleeping quarters', 'vr chamber', 'holding chamber', 'maintenance', 'hallway', 'prep chamber', 'space near escape pod', 'space near eva chamber', 'mess']
+        self.rooms = ['north', 'n', 'south', 's', 'east', 'e', 'west', 'w', 'escape pod', 'loading dock', 'navigation control room', 'station control room', 'plant lab', 'energy generation plant', 'crew sleeping quarters', 'virtual reality chamber', 'holding chamber', 'maintenance room', 'busy hallway', 'eva prep chamber', 'space', 'space near escape pod', 'space near eva chamber', 'mess hall']
         self.keywords = self.verbs + self.items + self.features + self.rooms
 
     # parse essential keywords from command
