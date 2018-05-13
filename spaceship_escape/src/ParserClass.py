@@ -18,19 +18,28 @@ class Parser:
         self.verbs = ['exit', 'look', 'help', 'inventory', 'savegame', 'loadgame', 'save game', 'load game', 'look at', 'go', 'take', 'pick up', 'grab', 'use', 'new game', 'walkthrough', 'demo']
         self.items = ['rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard']
         self.features = ['door'] # Not complete
-        self.rooms = ['e', 'w', 's', 'n', 'north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'plant lab', 'energy generation', 'crew sleeping quarters', 'sleeping quarters', 'crew sleeping', 'vr chamber', 'holding chamber', 'maintenance room', 'busy hallway', 'EVA prep chamber', 'EVA prep', 'eva prep', 'prep chamber', 'space near escape pod', 'space near eva chamber', 'mess hall', 'space']
+        self.rooms = ['e', 'w', 's', 'n', 'north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'plant lab', 'energy generation', 'crew sleeping quarters', 'sleeping quarters', 'crew sleeping', 'vr chamber', 'holding chamber', 'maintenance room', 'busy hallway', 'eva prep chamber', 'eva prep', 'prep chamber', 'space near escape pod', 'space near eva chamber', 'mess hall']
         self.keywords = self.verbs + self.items + self.features + self.rooms
 
     # parse essential keywords from command
     def tokenize(self, command):
-        # All single and double words
+        # check for space near eva chamber and space near escape pod
+        discovered_room = []
+        for possible_correction in self.edits(command):
+            if 'space near eva chamber' in possible_correction:
+                discovered_room.append('space near eva chamber')
+            elif 'space near escape pod' in possible_correction:
+                discovered_room.append('space near escape pod')
+
+        # all single and double words
         single_words = [_ for _ in command.lower().split() if _ not in self.stop_words]
         double_words = [' '.join(word) for word in combinations(single_words, 2)]
         single_and_double_words = double_words + single_words
+        all_keywords = discovered_room + single_and_double_words
 
         # spell correct all tokens with max 1 error
         spell_corrected_tokens = []
-        for token in single_and_double_words:
+        for token in all_keywords:
             if token not in ['e', 'w', 's', 'n']:
                 possible_corrections = self.edits(token)
                 for possible_correction in possible_corrections:
@@ -72,10 +81,8 @@ class Parser:
             'sleeping quarters': 'crew sleeping quarters',
             'crew sleeping': 'crew sleeping quarters',
             'prep chamber': 'eva prep chamber',
-            'EVA prep': 'eva prep chamber',
             'eva prep': 'eva prep chamber',
-            'vr chamber': 'virtual reality chamber',
-            'VR chamber': 'virtual reality chamber'
+            'vr chamber': 'virtual reality chamber'
         }
 
         # find verb, item, feature, location from list of tokens
