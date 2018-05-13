@@ -167,6 +167,9 @@ class Game:
                 self.actions[choice['verb']](choice)
             elif choice['verb'] in ['exit']:
                 break
+            # if no verb simply go to designated room
+            elif not choice['verb'] and choice['room']:
+                self.actions['go'](choice)
 
 
     # parses the verb, item, room, and features from player's input
