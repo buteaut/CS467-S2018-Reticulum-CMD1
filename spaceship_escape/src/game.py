@@ -87,8 +87,10 @@ class Game:
     def move_item(self, item, location_taken, location_put):
         pass
 
-    def look(self, noun):
-        pass
+    def look(self):
+        # get current coordinates and call game_print()
+        xy = str(self.xCoord) + str(self.yCoord)
+        self.game_print(self.map[xy]["description"])
 
     def travel(self, input):
         xy = str(self.xCoord) + str(self.yCoord)
@@ -164,9 +166,10 @@ class Game:
             command = input('\nType a sentence: ')
             choice = self.parse(command)
             if choice['verb'] in self.actions:
-                self.actions[choice['verb']](choice)
-            elif choice['verb'] in ['exit']:
-                break
+                if choice['verb'] == 'look':
+                    self.look()
+                else:
+                    self.actions[choice['verb']](choice)
             # if no verb simply go to designated room
             elif not choice['verb'] and choice['room']:
                 self.actions['go'](choice)
