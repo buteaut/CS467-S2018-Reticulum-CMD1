@@ -9,6 +9,7 @@ from FileEngine import FileReader
 from FileEngine import GameSaver
 from ItemClass import Item
 from ParserClass import Parser
+import textwrap
 
 class Game:
     def __init__(self):
@@ -98,32 +99,35 @@ class Game:
             self.game_print(self.map[xy]["description"],"You stumble around unsure on where to go.")
             return
         elif input['room'] not in ["north", "south", "east", "west", "n", "s", "e", "w"]:
-            #for d, r in self.map[xy]["exits"]:
-            #    if r == input['room']:
-            #        travel = r
-            if input['room'] == self.map[xy]["exits"]["north"]:
-                travel = "north"
-            elif input['room'] == self.map[xy]["exits"]["south"]:
-                travel = "south"
-            elif input['room'] == self.map[xy]["exits"]["west"]:
-                travel = "west"
-            elif input['room'] == self.map[xy]["exits"]["east"]:
-                travel = "east"
+            paths = self.map[xy]["exits"]
+            print("Paths:" + str(paths))
+            if 'north' in paths:
+                if input['room'] == str.lower(self.map[xy]["exits"]["north"]):
+                    travel = "north"
+            if "south" in paths:
+                if input['room'] == str.lower(self.map[xy]["exits"]["south"]):
+                    travel = "south"
+            if "west" in paths:
+                if input['room'] == str.lower(self.map[xy]["exits"]["west"]):
+                    travel = "west"
+            if "east" in paths:
+                if input['room'] == str.lower(self.map[xy]["exits"]["east"]):
+                    travel = "east"
         else:
             travel = input['room']
+
         if travel is None:
             self.game_print(self.map[xy]["description"], "You stumble around unsure on where to go.")
             return
         else:
-            #print("Travel: " + travel)
             if travel == "north" or travel == "n":
                 direction = [-1, 0]
             elif travel == "south" or travel == "s":
                 direction = [1, 0]
             elif travel == "west" or travel == "w":
-                direction = [0, 1]
-            elif travel == "east" or travel == "e":
                 direction = [0, -1]
+            elif travel == "east" or travel == "e":
+                direction = [0, 1]
             else:
                 self.game_print(self.map[xy]["description"], "You stumble around unsure on where to go.")
                 return
@@ -138,7 +142,7 @@ class Game:
             if self.map[xy]["name"] == "Void":
                 print("You cannot travel to the void")
             else:
-                print(self.map[xy]["name"])
+                #print(self.map[xy]["name"])
                 self.xCoord = newX
                 self.yCoord = newY
                 self.load_room(self.map[xy]["name"])
@@ -188,16 +192,36 @@ class Game:
         #print(self.current_room.get_name())
         # need information on Room class get_exit_names output
         # to make a print statement of the different directions and where they lead
-
+        print(str.center(self.current_room.get_name(), 80, ' '))
+        print()
+        exitLocks = self.current_room.get_exit_locks()
+        exits = self.current_room.get_exit_names()
+        exitString = ""
+        if "north" in exitLocks and exitLocks["north"] == False:
+            exitString = exitString + " North - {} |".format(exits["north"])
+        if "south" in exitLocks and exitLocks["south"] == False:
+            exitString = exitString + " South - {} |".format(exits["south"])
+        if "east" in exitLocks and exitLocks["east"] == False:
+            exitString = exitString + " East - {} |".format(exits["east"])
+        if "west" in exitLocks and exitLocks["west"] == False:
+            exitString = exitString + " West - {} |".format(exits["west"])
+        exitString = exitString[0:-1]
+        print(str.center(exitString, 80, ' '))
+        print()
+        if event1 is not None:
+            print(event1)
+            print()
         if description == 0:
-            print(self.current_room.get_long())
+            print(textwrap.fill(self.current_room.get_long(), 75))
+            print()
         else:
             self.current_room.set_which_short(description-1)
             print(self.current_room.get_short())
-        if event1 is not None:
-            print(event1)
+            print()
+
         if event2 is not None:
             print(event2)
+            print()
 
     def end_game(self):
         pass
