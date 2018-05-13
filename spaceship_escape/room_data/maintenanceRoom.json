@@ -1,20 +1,20 @@
 {
     "room_name": "Maintenance Room",
-    "long_description": "This is the long form description of the Maintenance Room",
+    "long_description": "So where did the small door from the Loading Dock lead you to? Wait for it...ok, its really not the exciting..or is it? You are now in the Maintenance Room. As you walk around the space, you pass racks and racks or miscellaneous materials and supplies. Some look familiar, there are coils of wire and electrical connectors, while other’s are definitely alien. There are a few jars filled with a glowing substance which looks like the Glubtomium from the Energy Generation Plant. Don’t worry its completely safe...but eh maybe don’t stand that close. You begin to think that there may be some useful items in the room to help you in your escape! As you walk around you notice three things in particular, a handheld toolset, a fire extinguisher, and stack of barrels which you cannot see inside. Amid the clutter of the room, you can see the exit to the Loading Dock behind you.",
     "short_description": [
-                          "Maintenance Room short 1",
+                          "Welcome back to the Maintenance Room. Here you can see a number of racks containing supplies for the alien’s ship. The room is cluttered so be careful! There is one door back to the Loading Dock.",
                           "Maintenance Room short 2",
                           "Maintenance Room short 3"
                           ],
     "which_short": 0,
     "inventory_list": [
                        {
-                       "description": "this is an alien plant",
-                       "name": "plant"
+                       "description": "This toolset can be used to make repairs, or manipulate pieces of the alien ship.",
+                       "name": "Toolset"
                        },
                        {
-                       "description": "this is the key to the pod",
-                       "name": "key"
+                       "description": "This fire exstinhisher can well...put out fires. It also expells a powerful stream of gas which may be useful as some sort of propulsion.",
+                       "name": "Fire Exstinhisher"
                        }
                        ],
   "exit_names": {"north": "Loading Dock"},
