@@ -18,7 +18,7 @@ class Parser:
         self.verbs = ['exit', 'look', 'help', 'inventory', 'savegame', 'loadgame', 'save game', 'load game', 'look at', 'go', 'take', 'pick up', 'grab', 'use', 'new game', 'walkthrough', 'demo']
         self.items = ['rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard']
         self.features = ['door'] # Not complete
-        self.rooms = ['e', 'w', 's', 'n', 'north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'lab', 'energy generation', 'sleeping quarters', 'vr chamber', 'holding chamber', 'maintenance', 'hallway', 'prep chamber', 'space near escape pod', 'space near eva chamber', 'mess']
+        self.rooms = ['e', 'w', 's', 'n', 'north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'plant lab', 'energy generation', 'crew sleeping quarters', 'sleeping quarters', 'crew sleeping', 'vr chamber', 'holding chamber', 'maintenance room', 'busy hallway', 'EVA prep chamber', 'EVA prep', 'eva prep', 'prep chamber', 'space near escape pod', 'space near eva chamber', 'mess hall', 'space']
         self.keywords = self.verbs + self.items + self.features + self.rooms
 
     # parse essential keywords from command
@@ -70,7 +70,12 @@ class Parser:
             'station control': 'station control room',
             'energy generation': 'energy generation plant',
             'sleeping quarters': 'crew sleeping quarters',
-            'prep chamber': 'EVA prep chamber'
+            'crew sleeping': 'crew sleeping quarters',
+            'prep chamber': 'eva prep chamber',
+            'EVA prep': 'eva prep chamber',
+            'eva prep': 'eva prep chamber',
+            'vr chamber': 'virtual reality chamber',
+            'VR chamber': 'virtual reality chamber'
         }
 
         # find verb, item, feature, location from list of tokens
