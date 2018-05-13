@@ -1,8 +1,8 @@
 {
     "room_name": "Space Near EVA Chamber",
-    "long_description": "This is the long form description of the Space Near EVA Chamber",
+    "long_description": "I’m assuming this might be your first time in outer-space? If it is congratulations! Take a moment to let the moment sink in. Ok good? Now lets see, where are we, ah yes, you are in the Space Near the EVA Chamber. Behind you is the hatch which leads back into the EVA Prep Chamber. The hatch is closed but you see a button next to the hatch. Ahead of you lies the vast darkness of space. However, you see that not far away, although separated by a considerable distance is a protruding Pod sticking out from the end of the spaces ship. It looks interesting, you may want to find a way to head in that direction!",
     "short_description": [
-                          "Space Near EVA Chamber short 1",
+                          "You are now in the Space Near EVA Chamber. Below is the hatch to the EVA Prep Chamber, and a small button. In the distance you can see a Pod sticking out from the end of the alien’s ship.",
                           "Space Near EVA Chamber short 2",
                           "Space Near EVA Chamber short 3"
                           ],

@@ -1,8 +1,8 @@
 {
     "room_name": "Space",
-    "long_description": "This is the long form description of the Space",
+    "long_description": "Well you’re ‘here’ which is really nowhere. Literally, you are surrounded by the emptiness of Space. Floating here between the Space Near EVA Chamber and Space Near Escape Pod. Oh that Pod you saw sticking out from the ship? Yup, definitely the Escape Pod. From this closer distance you can see it strategically placed at the end of the ship, ready to jettison its occupant away into the great yonder! As you float through this region you notice that there are two buttons on your spacesuit arm. One button is Red, the other is Green. Both seem to have a descriptive note above them. Hm might be worth taking a closer look.",
     "short_description": [
-                          "Space Near EVA Chamber short 1",
+                          "You are back in Space, the emptiness between the Space Near EVA Chamber and the Space Near Escape Pod. You again notice the Red and Green buttons on your suit. Do something! You don’t want to float here forever.",
                           "Space Near EVA Chamber short 2",
                           "Space Near EVA Chamber short 3"
                           ],
