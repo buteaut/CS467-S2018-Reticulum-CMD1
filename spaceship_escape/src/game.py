@@ -94,7 +94,7 @@ class Game:
 
     def travel(self, input):
         xy = str(self.xCoord) + str(self.yCoord)
-        print(input)
+        #print(input)
         direction = [0,0]
         travel = None
         if input['room'] is None:
