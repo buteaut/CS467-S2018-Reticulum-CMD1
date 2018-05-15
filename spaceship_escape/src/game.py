@@ -65,9 +65,9 @@ class Game:
         #    if choice[key]:
         #        print(key + ': ' + choice[key])
         #print()
-
+        print(choice)
         # call method based on parsed verb if one of menu options
-        if choice['verb'] in ['new game', 'load game', 'walkthrough', 'exit']:
+        if choice['verb'] in ['new game', 'load game', 'loadgame', 'walkthrough', 'exit']:
             self.actions[choice['verb']]()
         elif choice['verb'] in ['demo']:
             print("# Type a command using one of these verbs ('help', 'take', 'look at', 'inventory', 'walkthrough')")
@@ -168,6 +168,8 @@ class Game:
             if choice['verb'] in self.actions:
                 if choice['verb'] == 'look':
                     self.look()
+                elif choice['verb'] == 'load':
+                    self.load()
                 else:
                     self.actions[choice['verb']](choice)
             # if no verb simply go to designated room
@@ -185,11 +187,17 @@ class Game:
 
         return parsed_tokens
 
-    def save(self):
-        pass
+    def save(self, parsed_tokens):
+        save = GameSaver()
+        save.saveGame(self)
+        self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]["description"], None,"Game saved.")
 
     def load(self):
-        pass
+        print("Start of load method")
+        load = GameSaver()
+        load.loadGame(self)
+        game_print(self.map[str(self.xCoord) + str(self.yCoord)]["description"], None, "Game loaded.")
+        self.game_loop()
 
     # format text to taste when testing
     def game_print(self, description, event1 = None, event2 = None):
