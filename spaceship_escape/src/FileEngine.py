@@ -122,10 +122,10 @@ class FileReader:
             pyDict = json.loads(f.read())
 
             # create a new Item for each item in inventory_list
-            inventory_list = []
+            inventory_list = {}
             for i in range(0, len(pyDict["inventory_list"])):
-                inventory_list.append(Item(pyDict["inventory_list"][i]["name"],
-                                           pyDict["inventory_list"][i]["description"]))
+                key =(pyDict["inventory_list"][i]['name'])
+                inventory_list[key] = (Item(pyDict["inventory_list"][i]["name"], pyDict["inventory_list"][i]["description"]))
 
             # create the Room object
             newRoom = Room(pyDict["room_name"],
