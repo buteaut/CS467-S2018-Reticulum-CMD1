@@ -163,9 +163,29 @@ class Game:
                 else:
                     self.game_print(self.map[xy]["description"])
 
-
     def use_item(self, parsed_tokens):
-        pass
+        #pass
+        #if feature key is in parsed_tokens call feature method then handle return statement
+        if parsed_tokens['feature'] is not None:
+            self.room_feature(parsed_tokens)
+        #check if item is in inventory
+        elif parsed_tokens['item'] is not None:
+            pass
+        #if so run item.use() and set event2 equal to the event key from the returned dict
+        #if returned dict has an unlock key update that room's exit_locks value
+        #if returned dict has a description key update the room's description value
+        #game_print(event2)
+
+        #if item not in inventory event2 declares as much
+
+    def room_feature(self, parsed_tokens):
+        #pass
+        response = self.current_room.feature(parsed_tokens['feature'])
+        if response is not -1:
+            self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
+        else:
+            response = "As you go to use %s you feel a wave of confusion. Didn't you see %s somewhere else on the station?" % (parsed_tokens['feature'], parsed_tokens['feature'])
+            self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
 
     def game_loop(self):
         while (True):
