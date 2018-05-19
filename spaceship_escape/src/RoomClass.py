@@ -39,9 +39,10 @@ class Room:
         d['long'] = self._long_description
         d['short'] = self._short_description
         d['which_short'] = self._which_short
-        d['inventory'] = []
+        d['inventory'] = {}
         for i in range(0, len(self._inventory_list)):
-            d['inventory'].append(self._inventory_list[i].toDict())
+            #d['inventory'].append(self._inventory_list[i].toDict())
+            d['inventory'][i.get_name()] = i
         d['exits'] = self._exit_names
         d['locks'] = self._exit_locks
         d['feature1keys'] = self._feature1_keywords
@@ -49,6 +50,12 @@ class Room:
         d['examinable_objects'] = self._examinable_objects
         return d
 
+    def feature(self, keyword):
+        #pass
+        if keyword in self._feature1_keywords.keys():
+            return self._feature1_keywords[keyword]
+        else:
+            return -1
 
     def feature1(self):
         pass

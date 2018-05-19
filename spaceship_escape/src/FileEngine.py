@@ -5,22 +5,22 @@ import time
 
 # define the exact file name and path to where the room data is held
 class _RoomFileNames:
-    _room_names = ["escapePod.json"
-                   ,"loadingDock.json"
-                   ,"navControlRoom.json"
-                   ,"stationControlRoom.json"
-                   ,"plantLab.json"
-                   ,"energyGenPlant.json"
-                   ,"crewSleepingQuarters.json"
-                   ,"VRChamber.json"
-                   ,"holdingChamber.json"
-                   ,"maintenanceRoom.json"
-                   ,"busyHallway.json"
-                   ,"EVAPrepChamber.json"
-                   ,"spaceNearEscapePod.json"
-                   ,"spaceNearEVAChamber.json"
-                   ,"messHall.json"
-                   ,"space.json"
+    _room_names = ["holdingChamber.json"
+                   #,"loadingDock.json"
+                   #,"navControlRoom.json"
+                   #,"stationControlRoom.json"
+                   #,"plantLab.json"
+                   #,"energyGenPlant.json"
+                   #,"crewSleepingQuarters.json"
+                   #,"VRChamber.json"
+                   #,"escapePod.json"
+                   #,"maintenanceRoom.json"
+                   #,"busyHallway.json"
+                   #,"EVAPrepChamber.json"
+                   #,"spaceNearEscapePod.json"
+                   #,"spaceNearEVAChamber.json"
+                   #,"messHall.json"
+                   #,"space.json"
                    ]
 
     _room_files_directory = "../room_data/"
@@ -125,8 +125,12 @@ class FileReader:
             inventory_list = {}
             for i in range(0, len(pyDict["inventory_list"])):
                 key =(pyDict["inventory_list"][i]['name'])
-                inventory_list[key] = (Item(pyDict["inventory_list"][i]["name"], pyDict["inventory_list"][i]["description"]))
-
+                #print("key:" + key)
+                inventory_list[key] = (Item(pyDict["inventory_list"][i]["name"], pyDict["inventory_list"][i]["description"],
+                                            pyDict["inventory_list"][i]["room_name"], pyDict["inventory_list"][i]["use_desc"],
+                                            pyDict["inventory_list"][i]["room_desc"], pyDict["inventory_list"][i]["exit"]))
+                #print(inventory_list[key]._room_name)
+                #print(inventory_list[key].keys())
             # create the Room object
             newRoom = Room(pyDict["room_name"],
                            pyDict["long_description"],
@@ -138,7 +142,7 @@ class FileReader:
                            pyDict["feature1_keywords"],
                            pyDict["feature2_keywords"],
                            pyDict["examinable_objects"])
-
+            #print(newRoom._inventory_list["key"].get_description())
             # add to dict to return
             rooms_dict[newRoom.get_name()] = newRoom
             f.close()

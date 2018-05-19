@@ -163,9 +163,53 @@ class Game:
                 else:
                     self.game_print(self.map[xy]["description"])
 
-
     def use_item(self, parsed_tokens):
-        pass
+        #pass
+        #if feature key is in parsed_tokens call feature method then handle return statement
+        if parsed_tokens['feature'] is not None:
+            self.room_feature(parsed_tokens)
+        #check if item is in inventory
+        elif parsed_tokens['item'] is not None:
+            #pass
+            if parsed_tokens['item'] in self.inventory:
+                #print(self.inventory[parsed_tokens['item']])
+                answer = self.inventory[parsed_tokens['item']].use(self.current_room.get_name())
+                #print(answer)
+                if answer == -1:
+                    response = "You can't seem to find a way to use the %s here." % (parsed_tokens['item'])
+                    self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
+                else:
+                    response = answer['use description']
+                    #print(response)
+                    if answer['room description'] != "None": #update room description
+                        #print(type(answer['room description']))
+                        self.map[str(self.xCoord) + str(self.yCoord)]['description'] = answer['room description']
+                    if answer['exit'] != 'None': #update room's exit locks
+                        self.map[str(self.xCoord) + str(self.yCoord)]['exit_locks'][answer['exit']] = False
+
+                    self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
+            else:
+                response = "You fantasize about what it would be like to use a %s but alas you do not currently possess one." % (parsed_tokens['item'])
+                self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
+        #if so run item.use() and set event2 equal to the event key from the returned dict
+        #if returned dict has an unlock key update that room's exit_locks value
+        #if returned dict has a description key update the room's description value
+        #game_print(event2)
+        else:
+            response = "A brilliant idea strikes you! You know exactly how to MacGyver your way back home. As you start " \
+                       "to implement your plan you hear the unmistakable sound of a xenomorph crawling through the airducts. " \
+                       "You stand frozen until it passes and the fear has drained all the plans from your mind."
+            self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
+        #if item not in inventory event2 declares as much
+
+    def room_feature(self, parsed_tokens):
+        #pass
+        response = self.current_room.feature(parsed_tokens['feature'])
+        if response is not -1:
+            self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
+        else:
+            response = "As you go to use %s you feel a wave of confusion. Didn't you see %s somewhere else on the station?" % (parsed_tokens['feature'], parsed_tokens['feature'])
+            self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
 
     def game_loop(self):
         while (True):
@@ -244,7 +288,7 @@ class Game:
             print()
 
         if event2 is not None:
-            print(event2)
+            print(textwrap.fill(event2, 75))
             print()
 
     def end_game(self):
@@ -266,6 +310,7 @@ class Game:
         self.load_room(self.map["31"]["name"])
         self.map["31"]["exits"] = self.current_room.get_exit_names()
         self.map["31"]["exit_locks"] = self.current_room.get_exit_locks()
+        self.map["31"]["inventory"] = self.current_room.get_inventory()
         self.game_print(0)
         self.map["31"]["description"] = 1
         self.game_loop()
