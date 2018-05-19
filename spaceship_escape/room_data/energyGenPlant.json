@@ -8,18 +8,29 @@
                           ],
     "which_short": 0,
     "inventory_list": [
-                       {
-                       "description": "this is an alien plant",
-                       "name": "plant"
-                       },
-                       {
-                       "description": "this is the key to the pod",
-                       "name": "key"
-                       }
+      {
+        "description": "this is an alien plant",
+        "exit": "None",
+        "name": "plant",
+        "room_desc": "None",
+        "room_name": "None",
+        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
+      },
+      {
+        "description": "this is the key to the pod",
+        "exit": "None",
+        "name": "key",
+        "room_desc": 2,
+        "room_name": "Escape Pod",
+        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
+      }
                        ],
     "exit_names": {"west": "Station Control Room", "north": "Plant Lab", "east": "EVA Prep Chamber"},
     "exit_locks": {"west":false, "north":false, "east":false},
-    "feature1_keywords": [],
+    "feature1_keywords": {
+      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
+      "desk": "Opening the desk reveals nothing of note."
+    },
     "feature2_keywords": [],
     "examinable_objects": {}
 }

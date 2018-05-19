@@ -367,4 +367,3 @@ class Game:
 
     def exit_game(self, parsed_tokens):
         exit(0)
-
