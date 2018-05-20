@@ -324,8 +324,18 @@ class Game:
         print('this is the dictionary sent with it', parsed_tokens)
 
     def get_inventory(self, parsed_tokens):
-        print('\nget_inventory was called')
-        print('this is the dictionary sent with it', parsed_tokens)
+        # create list of keys from inventory dict
+        inventory_list = list(self.inventory.keys())
+
+        # case nothing in inventory
+        if not len(inventory_list):
+            print('\nYour inventory is empty.')
+        # case 1 or more items in inventory
+        else:
+            print('\nYour inventory currently contains:', end=' ')
+            for key in inventory_list[0:-1]:
+                print(key, end=', ')
+            print(inventory_list[-1])
 
     def look_at(self, parsed_tokens):
         #print('\nlook_at was called')
