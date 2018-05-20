@@ -1,7 +1,8 @@
-# Imports
+# imports
 from itertools import combinations
 import string
 
+# general outline for creating parser found here http://textblob.readthedocs.io/en/dev/quickstart.html
 class Parser:
     def __init__(self):
         # list of stop words to remove before parsing
