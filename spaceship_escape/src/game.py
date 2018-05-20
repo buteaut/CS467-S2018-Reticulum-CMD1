@@ -244,7 +244,7 @@ class Game:
 
     def load(self):
         load = GameSaver()
-        load.loadGame(self)
+        self = load.loadGame(self)
         self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]["description"], None, "Game loaded.")
         self.game_loop()
 
