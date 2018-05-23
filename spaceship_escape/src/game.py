@@ -244,10 +244,27 @@ class Game:
         self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]["description"], None,"Game saved.")
 
     def load(self):
-        load = GameSaver()
-        self = load.loadGame(self)
-        self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]["description"], None, "Game loaded.")
-        self.game_loop()
+        # get confirmation from player
+        confirmation = input('\nAre you sure you want to load your saved game?: ').lower()
+        yes_words = ['y', 'yes', 'sure', 'yep', 'ok', 'yeah', 'yea', 'uh huh']
+        no_words = ['n', 'no', 'not really', 'nope']
+
+        while(True):
+            # load game
+            if confirmation in yes_words:
+                load = GameSaver()
+                self = load.loadGame(self)
+                self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]["description"], None, "Game loaded.")
+                self.game_loop()
+                break
+            # end loop
+            elif confirmation in no_words:
+                print('Good choice! Let\'s keep going.\n')
+                break
+            # repeat questoin
+            else:
+                confirmation = input('\nSorry, I didn\'t understand that. Do you want to load a saved game?: ').lower()
+
 
     # format text to taste when testing
     def game_print(self, description, event1 = None, event2 = None):
@@ -317,8 +334,15 @@ class Game:
         self.game_loop()
 
     def help(self, parsed_tokens):
-        # display actions available to player
-        pass
+        # display commands available to player
+        print('go <direction or room> -- travel to designated room')
+        print('help -- displays list of available commands')
+        print('inventory -- displays contents of inventory')
+        print('loadgame -- loads a previously saved game')
+        print('look -- displays long form description of the current room')
+        print('look at <feature or object> -- describes the feature or object')
+        print('take <object> -- place object in inventory')
+        print('')
 
     def walkthrough(self, parsed_tokens):
         print('\nwalkthrough was called')
