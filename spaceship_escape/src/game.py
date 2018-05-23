@@ -335,14 +335,18 @@ class Game:
 
     def help(self, parsed_tokens):
         # display commands available to player
-        print('go <direction or room> -- travel to designated room')
-        print('help -- displays list of available commands')
-        print('inventory -- displays contents of inventory')
-        print('loadgame -- loads a previously saved game')
-        print('look -- displays long form description of the current room')
-        print('look at <feature or object> -- describes the feature or object')
-        print('take <object> -- place object in inventory')
         print('')
+        print('These are the available commands:\n')
+        print('• exit --- exits the game')
+        print('• go <direction or room> --- travel to designated room')
+        print('• help --- displays list of available commands')
+        print('• inventory --- displays contents of inventory')
+        print('• loadgame --- loads a previously saved game')
+        print('• look --- displays long form description of the current room')
+        print('• look at <feature or object> --- describes the feature or object')
+        print('• savegame --- saves the current state of the game')
+        print('• take <object> --- place object in inventory')
+        print('• use <object> on <feature> --- try using the objects in your inventory to see what happens')
 
     def walkthrough(self, parsed_tokens):
         print('\nwalkthrough was called')
