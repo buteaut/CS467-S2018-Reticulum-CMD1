@@ -96,7 +96,8 @@ class Game:
 
             items = items[0:-2] + "."
 
-        self.game_print(self.map[xy]["description"], None, items)
+        # display the long form description of room
+        self.game_print(0, None, items)
 
     def travel(self, input):
         xy = str(self.xCoord) + str(self.yCoord)
@@ -316,8 +317,8 @@ class Game:
         self.game_loop()
 
     def help(self, parsed_tokens):
-        print('\nhelp was called')
-        print('this is the dictionary sent with it', parsed_tokens)
+        # display actions available to player
+        pass
 
     def walkthrough(self, parsed_tokens):
         print('\nwalkthrough was called')
