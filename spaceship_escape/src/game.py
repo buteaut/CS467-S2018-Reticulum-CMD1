@@ -11,6 +11,7 @@ from ItemClass import Item
 from ParserClass import Parser
 import textwrap
 
+
 class Game:
     def __init__(self):
         self.inventory = {}
@@ -18,12 +19,15 @@ class Game:
                        "10":{"name":"Void"}, "11":{"name": "Virtual Reality Chamber", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "12":{"name": "Void"}, "13":{"name": "Void"}, "14":{"name": "Plant Lab", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "15":{"name": "Space Near EVA Chamber", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "16":{"name": "Escape Pod", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}},
                        "20":{"name": "Crew Sleeping Quarters", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "21":{"name": "Mess Hall", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "22":{"name": "Busy Hallway", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "23":{"name": "Station Control Room", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "24":{"name": "Energy Generation Plant", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "25":{"name": "EVA Prep Chamber", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "26":{"name": "Loading Dock", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}},
                        "30":{"name":"Void"}, "31":{"name": "Holding Chamber", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "32":{"name":"Void"}, "33":{"name": "Navigation Control Room", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}, "34":{"name":"Void"}, "35":{"name":"Void"}, "36":{"name": "Maintenance Room", "description": 0, "inventory": {}, "exits": {}, "exit_locks": {}}}  # 7x4 array of rooms
-        self.end_flag = {"rations":False, "map":False}
+        self.end_flag = {"rations": False, "map": False, "space suit": False, "unclamped": False, "started": False}
         self.xCoord = 0  # x-coordinate for map array
         self.yCoord = 0  # y-coordinate for map array
         self.current_room = None
         self.rooms = FileReader()
+        self.space = ("Space Near EVA Chamber", "Space Near Escape Pod", "Space")
+        self.item_flags = ("rations", "map", "space suit")
         self.roomDict = self.rooms.getRoomsFromFiles()
+        self.endings = {}
         # dictionary maps verbs to associated functions
         self.actions = {
             'new game': self.startup,
@@ -102,7 +106,6 @@ class Game:
     def travel(self, input):
         xy = str(self.xCoord) + str(self.yCoord)
         #print(input)
-        direction = [0,0]
         travel = None
         if input['room'] is None:
             self.game_print(self.map[xy]["description"],"You stumble around unsure on where to go.")
@@ -145,11 +148,11 @@ class Game:
         newY = self.yCoord + direction[1]
         #print("newX", newX, "newY", newY)
         if(newX > 3 or newX < 0 or newY < 0 or newY > 6):
-            print("You cannot travel to the void")
+            print("You cannot go that way")
         else:
             xy = str(newX) + str(newY)
             if self.map[xy]["name"] == "Void":
-                print("You cannot travel to the void")
+                print("You cannot go that way")
             else:
                 #print(self.map[xy]["name"])
                 self.xCoord = newX
@@ -161,11 +164,14 @@ class Game:
                     self.map[xy]["exit_locks"] = self.current_room.get_exit_locks()
                     self.map[xy]["description"] = 1
                     self.game_print(0)
+                    if self.current_room.get_name() in self.space and self.end_flag["space suit"] is False:
+                        self.end_game("space")
                 else:
                     self.game_print(self.map[xy]["description"])
+                    if self.current_room.get_name() in self.space and self.end_flag["space suit"] is False:
+                        self.end_game("space")
 
     def use_item(self, parsed_tokens):
-        #pass
         #if feature key is in parsed_tokens call feature method then handle return statement
         if parsed_tokens['feature'] is not None:
             self.room_feature(parsed_tokens)
@@ -185,6 +191,10 @@ class Game:
                     if answer['room description'] != "None": #update room description
                         #print(type(answer['room description']))
                         self.map[str(self.xCoord) + str(self.yCoord)]['description'] = answer['room description']
+                        if parsed_tokens['item'] == "large hand tools" and self.current_room.get_name() == "Space Near Escape Pod":
+                            self.end_flag["unclamped"] = True
+                        if parsed_tokens['item'] == "key" and self.current_room.get_name() == "Escape Pod":
+                            self.end_flag["started"] = True
                     if answer['exit'] != 'None': #update room's exit locks
                         self.map[str(self.xCoord) + str(self.yCoord)]['exit_locks'][answer['exit']] = False
 
@@ -192,9 +202,6 @@ class Game:
             else:
                 response = "You fantasize about what it would be like to use a %s but alas you do not currently possess one." % (parsed_tokens['item'])
                 self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
-        #if so run item.use() and set event2 equal to the event key from the returned dict
-        #if returned dict has an unlock key update that room's exit_locks value
-        #if returned dict has a description key update the room's description value
         #game_print(event2)
         else:
             response = "A brilliant idea strikes you! You know exactly how to MacGyver your way back home. As you start " \
@@ -206,7 +213,15 @@ class Game:
     def room_feature(self, parsed_tokens):
         #pass
         response = self.current_room.feature(parsed_tokens['feature'])
-        if response is not -1:
+        if response == 'ship' and self.current_room.get_name() == "Escape Pod" and self.end_flag["unclamped"] is True and self.end_flag["started"] is True:
+            if self.end_flag["rations"] is False:
+                self.end_game("hungry")
+            elif self.end_flag["map"] is False:
+                self.end_game("lost")
+            else:
+                self.end_game("home")
+
+        elif response is not -1:
             self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
         else:
             response = "As you go to use %s you feel a wave of confusion. Didn't you see %s somewhere else on the station?" % (parsed_tokens['feature'], parsed_tokens['feature'])
@@ -227,10 +242,6 @@ class Game:
             elif not choice['verb'] and choice['room']:
                 self.actions['go'](choice)
 
-
-    # parses the verb, item, room, and features from player's input
-    # requires a string
-    # returns a dictionary of parsed tokens
     def parse(self, command):
         parser = Parser()
         tokens = parser.tokenize(command)
@@ -265,26 +276,21 @@ class Game:
             else:
                 confirmation = input('\nSorry, I didn\'t understand that. Do you want to load a saved game?: ').lower()
 
-
-    # format text to taste when testing
     def game_print(self, description, event1 = None, event2 = None):
-        # pass
         self.clearscreen()
         #print(self.current_room.get_name())
-        # need information on Room class get_exit_names output
-        # to make a print statement of the different directions and where they lead
         print(str.center(self.current_room.get_name(), 80, ' '))
         print()
         exitLocks = self.current_room.get_exit_locks()
         exits = self.current_room.get_exit_names()
         exitString = ""
-        if "north" in exitLocks and exitLocks["north"] == False:
+        if "north" in exitLocks and exitLocks["north"] is False:
             exitString = exitString + " North - {} |".format(exits["north"])
-        if "south" in exitLocks and exitLocks["south"] == False:
+        if "south" in exitLocks and exitLocks["south"] is False:
             exitString = exitString + " South - {} |".format(exits["south"])
-        if "east" in exitLocks and exitLocks["east"] == False:
+        if "east" in exitLocks and exitLocks["east"] is False:
             exitString = exitString + " East - {} |".format(exits["east"])
-        if "west" in exitLocks and exitLocks["west"] == False:
+        if "west" in exitLocks and exitLocks["west"] is False:
             exitString = exitString + " West - {} |".format(exits["west"])
         exitString = exitString[0:-1]
         print(str.center(exitString, 80, ' '))
@@ -309,9 +315,12 @@ class Game:
             print(textwrap.fill(event2, 75))
             print()
 
-    def end_game(self):
-        pass
-
+    def end_game(self, ending):
+        #pass
+        self.clearscreen()
+        print(textwrap.fill(self.endings[ending], 75))
+        x = input('\nThank you for playing. Press Enter to exit.')
+        exit(0)
 
     def load_room(self, room):
         self.current_room = self.roomDict[room]
@@ -335,18 +344,14 @@ class Game:
 
     def help(self, parsed_tokens):
         # display commands available to player
+        print('go <direction or room> -- travel to designated room')
+        print('help -- displays list of available commands')
+        print('inventory -- displays contents of inventory')
+        print('loadgame -- loads a previously saved game')
+        print('look -- displays long form description of the current room')
+        print('look at <feature or object> -- describes the feature or object')
+        print('take <object> -- place object in inventory')
         print('')
-        print('These are the available commands:\n')
-        print('• exit --- exits the game')
-        print('• go <direction or room> --- travel to designated room')
-        print('• help --- displays list of available commands')
-        print('• inventory --- displays contents of inventory')
-        print('• loadgame --- loads a previously saved game')
-        print('• look --- displays long form description of the current room')
-        print('• look at <feature or object> --- describes the feature or object')
-        print('• savegame --- saves the current state of the game')
-        print('• take <object> --- place object in inventory')
-        print('• use <object> on <feature> --- try using the objects in your inventory to see what happens')
 
     def walkthrough(self, parsed_tokens):
         print('\nwalkthrough was called')
@@ -367,8 +372,6 @@ class Game:
             print(inventory_list[-1])
 
     def look_at(self, parsed_tokens):
-        #print('\nlook_at was called')
-        #print('this is the dictionary sent with it', parsed_tokens)
         xy = str(self.xCoord) + str(self.yCoord)
         if parsed_tokens['item'] in self.inventory:
             items = "An examination of " + parsed_tokens['item'] + " reveals " + self.inventory[parsed_tokens['item']].get_description()
@@ -380,8 +383,6 @@ class Game:
         self.game_print(self.map[xy]["description"], None, items)
 
     def take(self, parsed_tokens):
-        #print('\ntake was called')
-        #print('this is the dictionary sent with it', parsed_tokens)
         player = "You drop the %s." % (parsed_tokens['item'])
         room = "Looking around to see if someone would notice you quickly pocket the %s." % (parsed_tokens['item'])
         missing = "You could have sworn you saw a %s around here but searching both %s and your pockets you can't find it." % (parsed_tokens['item'], self.current_room.get_name())
@@ -394,15 +395,19 @@ class Game:
             #self.map[str(self.xCoord) + str(self.yCoord)]['inventory'].update(item)
             self.map[str(self.xCoord) + str(self.yCoord)]['inventory'][name] = i
             del self.inventory[parsed_tokens['item']]
+            if parsed_tokens['item'] in self.item_flags:
+                self.end_flag[parsed_tokens['item']] = False
             self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, player)
         elif parsed_tokens['item'] in self.map[str(self.xCoord) + str(self.yCoord)]['inventory'].keys():
             i = self.map[str(self.xCoord) + str(self.yCoord)]['inventory'][parsed_tokens['item']]
             self.inventory[parsed_tokens['item']] = i
             del self.map[str(self.xCoord) + str(self.yCoord)]['inventory'][parsed_tokens['item']]
+            if parsed_tokens['item'] in self.item_flags:
+                self.end_flag[parsed_tokens['item']] = True
             self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, room)
+
         else:
             self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, missing)
-
 
     def exit_game(self, parsed_tokens):
         exit(0)
