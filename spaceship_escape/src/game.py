@@ -6,6 +6,7 @@
 import platform, os
 from RoomClass import Room
 from FileEngine import FileReader
+from FileEngine import TextReader
 from FileEngine import GameSaver
 from ItemClass import Item
 from ParserClass import Parser
@@ -28,6 +29,7 @@ class Game:
         self.item_flags = ("rations", "map", "space suit")
         self.roomDict = self.rooms.getRoomsFromFiles()
         self.endings = {}
+        self.gameText = TextReader()
         # dictionary maps verbs to associated functions
         self.actions = {
             'new game': self.startup,
@@ -73,11 +75,12 @@ class Game:
         if choice['verb'] in ['new game', 'load game', 'loadgame', 'walkthrough', 'exit']:
             self.actions[choice['verb']]()
         elif choice['verb'] in ['demo']:
-            print("# Type a command using one of these verbs ('help', 'take', 'look at', 'inventory', 'walkthrough')")
-            print("# Include a noun such as ('rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard')")
-            print("# Include a room such as ('north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'lab', 'energy generation', 'sleeping quarters', 'vr chamber', 'holding chamber')")
-            print('# "Exit" ends the loop')
-            print("\n# ex. 'Take the plant to the escape pod' or 'LOOKat th loding dock for the kyy' - spelling errors intentional!")
+            # print("# Type a command using one of these verbs ('help', 'take', 'look at', 'inventory', 'walkthrough')")
+            # print("# Include a noun such as ('rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard')")
+            # print("# Include a room such as ('north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'lab', 'energy generation', 'sleeping quarters', 'vr chamber', 'holding chamber')")
+            # print('# "Exit" ends the loop')
+            # print("\n# ex. 'Take the plant to the escape pod' or 'LOOKat th loding dock for the kyy' - spelling errors intentional!")
+            print(self.gameText.getTextFromFiles()['demoText'])
 
             while(True):
                 command = input('\nType a sentence: ')
@@ -344,14 +347,7 @@ class Game:
 
     def help(self, parsed_tokens):
         # display commands available to player
-        print('go <direction or room> -- travel to designated room')
-        print('help -- displays list of available commands')
-        print('inventory -- displays contents of inventory')
-        print('loadgame -- loads a previously saved game')
-        print('look -- displays long form description of the current room')
-        print('look at <feature or object> -- describes the feature or object')
-        print('take <object> -- place object in inventory')
-        print('')
+        print(self.gameText.getTextFromFiles()['helpText'])
 
     def walkthrough(self, parsed_tokens):
         print('\nwalkthrough was called')

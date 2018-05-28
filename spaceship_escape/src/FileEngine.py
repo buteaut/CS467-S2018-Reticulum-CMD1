@@ -31,6 +31,12 @@ class _GameFileNames:
     _game_files_directory = "../saved_games/"
     _saved_game_filename = "game.dat"
 
+class _GameTextFileNames:
+    _text_files_directory = "./"
+    _text_files_filename = "gameText.json"
+
+
+
 class GameSaver:
     # try to use pickle module
     def saveGame(self, game):
@@ -121,6 +127,27 @@ class GameSaver:
         # game.xCoord = gameXCoord
         # game.yCoord = gameYCoord
         # game.current_room = gameCurrentRoom
+
+class TextReader:
+    def getTextFromFiles(self):
+        textDict = {}
+        f = open(_GameTextFileNames._text_files_directory + _GameTextFileNames._text_files_filename, "r")
+        textDict = json.loads(f.read())
+
+
+        for keys in textDict:
+            textString = ""
+            for s in textDict[keys]:
+                textString = textString + s + '\n'
+            textDict[keys] = textString
+
+        return textDict
+        #
+        # demoString = ""
+        # for s in textDict['demoText']:
+        #     demoString = demoString + s + '\n'
+        # textDict['demoText'] = demoString
+        # return textDict
 
 # FileReader has one method 'getRoomsFromFiles' which will return
 # a dictionary of Room objects with each key being the full name of the Room.
