@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cols=$(tput cols)
+rows=$(tput lines)
+
+if [ "$cols" -lt 80 ] || [ "$rows" -lt 40 ]; then
+    echo "Please use a terminal size of at least 80x40 and try again!"
+else
+    cd ./src
+    python3 main.py
+fi
