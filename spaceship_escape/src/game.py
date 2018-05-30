@@ -28,7 +28,10 @@ class Game:
         self.space = ("Space Near EVA Chamber", "Space Near Escape Pod", "Space")
         self.item_flags = ("rations", "map", "space suit")
         self.roomDict = self.rooms.getRoomsFromFiles()
-        self.endings = {}
+        self.endings = {"space": "The station investigators never determined why you decided to brave the vacuum of space without a suit but they did enjoy taking bets on how many shots Ensine Ricky would need with the station's proximity lasers to remove the collision hazard that was your corpse. Investigator Eisenhorn was correct with his bet of seven.",
+                        "hungry": "In your excitement to find a way off the station you neglect to calculate how long your trip will take. Packing little in the way of rations you barely survive the journey as a shell of your former self.",
+                        "lost": "Hasty to make your way off station you climb aboard the first shuttle you feel you can fly and make your escape. You soon realise that more planning would have been wise. After wandering the stars without a map for longer than you can remember you find a human colony called Hadleys Hope. It seems like a nice enough place to settle down.",
+                        "home": "With a map in hand and a cargohold full of rations you decide you are as prepared to leave as you'll be. So prepared in fact that you're able to do some sight seeing on your way back to Earth based on some notes you find in your map."}
         self.gameText = TextReader()
         # dictionary maps verbs to associated functions
         self.actions = {
@@ -343,7 +346,10 @@ class Game:
         self.map["31"]["inventory"] = self.current_room.get_inventory()
         self.game_print(0)
         self.map["31"]["description"] = 1
+        #self.endings = self.gameText.getTextFromFiles()['endings']
+        #print(self.endings)
         self.game_loop()
+
 
     def help(self, parsed_tokens):
         # display commands available to player
