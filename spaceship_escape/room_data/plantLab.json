@@ -1,8 +1,8 @@
 {
     "room_name": "Plant Lab",
-    "long_description": "Ok, so just when you thought things couldn’t get any stranger, you arrive here. Where is here you may ask? Well, welcome to the alien Plant Laboratory! As you look into the space ahead of you, you see rows upon rows of hydroponically grown plants, set in narrow troughs that encircle the room. Most of these plants look like vines which may be found on Earth. In fact, you may think you were back at your Uncle Phil’s backyard greenhouse in Ohio if it weren’t for the fact that you just passed a Glubtomium reactor on your way in! However, as you continue to explore something catches your eye. In the corner of the room is a desk, upon which sits a grouping and small potted plants. These plants look like basil which might grown in your window back on Earth, except for the shimmering purple leaves, which have an almost holographic property. Next to these plants is a small notebook. Maybe is describes what these plants are. As you look back over your shoulder to keep a lookout for aliens, you see the exit back to the Energy Generation Plan through a tangle of vines.",
+    "long_description": "Ok, so just when you thought things couldn’t get any stranger, you arrive here. Where is here you may ask? Well, welcome to the alien Plant Laboratory! As you look into the space ahead of you, you see rows upon rows of hydroponically grown plants, set in narrow troughs that encircle the room. Most of these plants look like vines which may be found on Earth. In fact, you may think you were back at your Uncle Phil’s backyard greenhouse in Ohio if it weren’t for the fact that you just passed a Glubtomium reactor on your way in! However, as you continue to explore something catches your eye. In the corner of the room is a desk, upon which sits a grouping and small potted plants and a small <DIAL> as well as a <LEVER>. These plants look like basil which might grown in your window back on Earth, except for the shimmering purple leaves, which have an almost holographic property. Next to these plants is a small notebook. Maybe is describes what these plants are. As you look back over your shoulder to keep a lookout for aliens, you see the exit back to the Energy Generation Plan through a tangle of vines.",
     "short_description": [
-                          "Welcome back to the Plant Lab! Amid the tangle of vines you see the lab desk with the strange potted plants with the shimmering purple leaves. A small notebook sits next to the plants. From this room you can exit back to the Energy Generation Plant.",
+                          "Welcome back to the Plant Lab! Amid the tangle of vines you see the lab desk with the strange potted plants with the shimmering purple leaves. The vines seems to be reaching towards a <DIAL> and a <LEVER>. From this room you can exit back to the Energy Generation Plant.",
                           "Plant Lab short 2",
                           "Plant Lab short 3"
                           ],
@@ -15,21 +15,13 @@
         "room_desc": "None",
         "room_name": "None",
         "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
       }
                        ],
   "exit_names": {"south": "Energy Generation Plant"},
     "exit_locks": {"south": false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "dial": "Turning the dial you notice it seems to be getting rather bright and uncomfortably hot in here. Before the room becomes unbearable a vine creeps its way to the dial and brings the lights back to their optimal position.",
+      "lever": "Pulling the lever results in the sprinklers misting the various lifeforms in the room."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

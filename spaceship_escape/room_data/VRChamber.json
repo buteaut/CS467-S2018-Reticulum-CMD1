@@ -1,35 +1,18 @@
 {
     "room_name": "Virtual Reality Chamber",
-    "long_description": "So are you excited to find out what lies beyond the Blue Room from the Mess Hall? You should be, because you are now in the Virtual Reality (VR) chamber. You see, these aliens are not captive on this ship like you, this is their only home as they traverse the galaxy. Therefore, they often get bored or looking at the same dozen or so rooms that make up the ship, and only interacting with the same group of happy smiling alien faces. In order to escape from this boredom, our crafty alien friends built this VR chamber in order to ‘escape’ from this day-to-day, lightyear-to-lightyear monotony. As you scan the  space you notice that there are no windows in this room and a dimly glowing grey membrane covers the walls and ceiling. It reminds you of grade-school field trips to the planetarium before they started the projection of the stars. In the center of the room is a row of seats. The seats look sturdy and comfortable, like those in a well equipped movie theater. Just in front of the center seat is a small control panel, which contains a prominently placed button which reminds you of the old ‘play’ buttons found on your DVD player at home. You also noticed that the Blue Door from the Mess Hall closed behind you, but you can see the faint outline of where the exit is.",
+    "long_description": "So are you excited to find out what lies beyond the Blue Room from the Mess Hall? You should be, because you are now in the Virtual Reality (VR) chamber. You see, these aliens are not captive on this ship like you, this is their only home as they traverse the galaxy. Therefore, they often get bored or looking at the same dozen or so rooms that make up the ship, and only interacting with the same group of happy smiling alien faces. In order to escape from this boredom, our crafty alien friends built this VR chamber in order to ‘escape’ from this day-to-day, lightyear-to-lightyear monotony. As you scan the space you notice that there are no windows in this room and a dimly glowing grey membrane covers the walls and ceiling. It reminds you of grade-school field trips to the planetarium before they started the projection of the stars. In the center of the room is a row of seats. The seats look sturdy and comfortable, like those in a well equipped movie theater. Just in front of the center <SEAT> is a small control panel, which contains a prominently placed <BUTTON> which reminds you of the old ‘play’ buttons found on your DVD player at home. You also noticed that the Blue Door from the Mess Hall closed behind you, but you can see the faint outline of where the exit is.",
     "short_description": [
-                          "You have returned to the Virtual Reality Chamber. In the center of this dome-like room is a row of plush almost movie theater-like seats. In front of the center seat is a small panel with a prominently placed ‘play’ button. Behind you is the exit back to the Mess Hall.",
+                          "You have returned to the Virtual Reality Chamber. In the center of this dome-like room is a row of plush almost movie theater-like <SEAT>s. In front of the center seat is a small panel with a prominently placed ‘play’ <BUTTON>. Behind you is the exit back to the Mess Hall.",
                           "Virtual Reality Chamber short 2",
                           "Virtual Reality Chamber short 3"
                           ],
     "which_short": 0,
-    "inventory_list": [
-      {
-        "description": "this is an alien plant",
-        "exit": "None",
-        "name": "plant",
-        "room_desc": "None",
-        "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
-      }
-                       ],
+    "inventory_list": [],
   "exit_names": { "south": "Mess Hall" },
     "exit_locks": {"south":false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "button": "You press the button and a headset decends from the ceiling and attaches to your head. You feel transported to another world where nausea and running into coffee tables is a daily occurance. After a few minutes you decide to get back to reality." ,
+      "seat": "Deciding to sit for a minute you notice that the membranes on the wall seem to pulse with a slow and comforting rhythm. Watching the slow movement seems to calm your stomach."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

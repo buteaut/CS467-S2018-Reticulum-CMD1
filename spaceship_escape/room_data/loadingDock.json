@@ -1,35 +1,18 @@
 {
     "room_name": "Loading Dock",
-    "long_description": "Welcome to the Loading Dock. As you take in your surroundings you are happy to see the lack of aliens in this space. Not much draws your attention in the room except for the two heavy doors on either side of the space. These doors are different from those separating the other rooms of the ship. Their size and shape indicate that they must be airlock doors able to withstand and protect the ship from the vacuum of space. The door on the opposite side of the room from the EVA Prep Chamber thankfully closes automatically! Just next to this door is what appears to be a small set of instructions and a big red button. You are somewhat comforted by the fact that even among the vast and diverse life forms that populate our universe, you are bound to find a big red button almost anywhere you go.  A brief scan of the instructions draws you to the words 'Escape Pod'  As you continue to look around you see another smaller door. Upon further inspection, you see a small sign on this door with a picture of what looks like a tool set.",
+    "long_description": "Welcome to the Loading Dock. As you take in your surroundings you are happy to see the lack of aliens in this space. Not much draws your attention in the room except for the two heavy doors on either side of the space and a large <LOADER>. These doors are different from those separating the other rooms of the ship. Their size and shape indicate that they must be airlock doors able to withstand and protect the ship from the vacuum of space. The door on the opposite side of the room from the EVA Prep Chamber thankfully closes automatically! Just next to this door is what appears to be a small set of instructions and a big red <BUTTON>. You are somewhat comforted by the fact that even among the vast and diverse life forms that populate our universe, you are bound to find a big red <BUTTON> almost anywhere you go.  A brief scan of the instructions draws you to the words 'Escape Pod'  As you continue to look around you see another smaller door. Upon further inspection, you see a small sign on this door with a picture of what looks like a tool set.",
     "short_description": [
                           "You are in the Loading Dock. Connections through two heavy doors are available too the Escape Pod and EVA Prep Chamber. Another small door leads to the Maintence Room. A large red button is seen on the wall.",
                           "Loading Dock short 2",
                           "Loading Dock short 3"
                           ],
     "which_short": 0,
-    "inventory_list": [
-      {
-        "description": "this is an alien plant",
-        "exit": "None",
-        "name": "plant",
-        "room_desc": "None",
-        "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
-      }
-                       ],
+    "inventory_list": [],
     "exit_names": {"south": "Maintenance Room", "west": "EVA Prep Chamber", "north": "Escape Pod"},
     "exit_locks": {"south":false, "west":false, "north":false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "button": "Learning from your past experiences you examine the button before pressing it. The label above the button reveals it is a panic button which will send armed security your way. Wisely you decide to leave this button unpressed.",
+      "loader": "The Caterpillar P-5000 is a powered exoskeleton commonly used to load and unload heavy cargo. It can also be used in extreme circumstances to battle large hostile lifeforms. Unfortunately you are not rated to use it."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

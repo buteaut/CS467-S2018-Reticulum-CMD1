@@ -1,35 +1,18 @@
 {
     "room_name": "Escape Pod",
-    "long_description": "You have arrived in the Escape Pod. Congratulations, but are you sure you don't want to extend your stay? I hear there is more galactic stew in the Mess Hall tonight. Anyway, as you look around the first thing you notice are the panoramic windows which encircle this small space. As you look out upon the vast array of stars, you can sense that your home planet is out there waiting for you. Just below this ring of windows there is a set of control instruments with numerous switches and buttons. As you look back there appears to be a hatch which reminds you of those from old submarine movies back home. This hatch leads to the Loading Dock where you entered from. You note that you probably want to close this if you ever get around to launching the Pod! As you continue to look around you notice there are very few supplies that would be needed for a long journey. There does not seem to be any sort of navigation system and there does not seem to be a supply of food.",
+    "long_description": "You have arrived in the Escape Pod. Congratulations, but are you sure you don't want to extend your stay? I hear there is more galactic stew in the Mess Hall tonight. Anyway, as you look around the first thing you notice are the panoramic windows which encircle this small space. As you look out upon the vast array of stars, you can sense that your home planet is out there waiting for you. Just below this ring of windows there is a set of control <INSTRUMENTS> with numerous switches and buttons. As you look back there appears to be a hatch which reminds you of those from old submarine movies back home. This hatch leads to the Loading Dock where you entered from. As you continue to look around you notice there are very few supplies that would be needed for a long journey. There does not seem to be any sort of navigation system and there does not seem to be a supply of food. There is no mistaking it though, this <SHIP> is your ticket home.",
     "short_description": [
-                          "You are back in the Escape Pod. From here you can return to the, Loading Dock. The main control panel contains a keyhole and a large button labeled LAUNCH. ",
-                          "Escape Pod short 2",
+                          "You are back in the Escape Pod. From here you can return to the, Loading Dock. The main control panel of the <SHIP> contains a keyhole and a large panel of <INSTRUMENTS>.",
+                          "The engine of the ship quietly hums. It is practically begging to be taken out into open space.",
                           "Escape Pod short 3"
                           ],
     "which_short": 0,
-    "inventory_list": [
-      {
-        "description": "this is an alien plant",
-        "exit": "None",
-        "name": "plant",
-        "room_desc": "None",
-        "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
-      }
-                       ],
-  "exit_names": {"south": "Loading Dock"},
+    "inventory_list": [],
+    "exit_names": {"south": "Loading Dock"},
     "exit_locks": {"south": false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "instruments": "The instrument panel displays all sorts of information about the ship. The ship seems safe to fly. At the bottom of the panel is a checklist which includes a reminder that the ship will not be able to take off while the docking clamps are in place.",
+      "ship": "Pressing various buttons on the ship do not result in a launch. Looking at the check list you see that the first step is to turn the key in the ignition. Skipping ahead a bit step 53b is to unlock the docking clamps. Worryingly, step 98 is to verify no xenomorphs are in the ship..."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

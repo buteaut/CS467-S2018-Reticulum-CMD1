@@ -2,34 +2,26 @@
     "room_name": "Crew Sleeping Quarters",
     "long_description": "So you went through the Red Door? Well of course you did because you are now in the Crew Sleeping Quarters. You ponder for a second the fact that these aliens are advanced enough to traverse the galaxy yet still have a need for sleep. OK enough philosophizing. Suspended from the ceiling are a series of hammock-like structures. It's like an alien summer camp! As you scan the room you see that most of the walls are fitted with large panoramic windows. After taking in the scenery of the vastness of space that lies before you, you notice that since there is only one exit from this room (back to the Mess Hall), that the Sleeping Quarters must be at one end of the whole ship.",
     "short_description": [
-                          "You are in the Crew Sleeping Quarters. There is one exit in this room back to the Mess Hall.",
+                          "You are in the Crew Sleeping Quarters. Next to a <FOOTLOCKER> there is a small <DOOR> which seems to lead to the exterior of the station. There is one exit in this room back to the Mess Hall.",
                           "Crew Sleeping Quarters short 2",
                           "Crew Sleeping Quarters short 3"
                           ],
     "which_short": 0,
     "inventory_list": [
       {
-        "description": "this is an alien plant",
-        "exit": "None",
-        "name": "plant",
-        "room_desc": "None",
-        "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
+        "description": "this clipboard has several forms on it of progressively more angry colors. You get the feeling that somewhere on the station a supervisor is missing the ability to write people up without this.",
+        "exit": "east",
+        "name": "clipboard",
+        "room_desc": "2",
+        "room_name": "Busy Hallway",
+        "use_desc": "As you squint down at the text on the pages and angrily flip through them you can hear the beings around you take notice and find other places to be or otherwise make efforts to appear hard at work. When you look up you can see that the large group blocking the path to the Station Control Room has dispersed."
       }
                        ],
   "exit_names": {"east": "Mess Hall"},
     "exit_locks": {"east":false},
     "feature1_keywords": {
       "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "footlocker": "It appears the beings on this station know the quality of those they work and live with because the footlocker is not only locked but welded to a bulkhead. There is no way you could hope to open it."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

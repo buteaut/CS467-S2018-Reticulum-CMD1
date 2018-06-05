@@ -1,6 +1,6 @@
 {
     "room_name": "Station Control Room",
-    "long_description": "You have found your way into the Station Control Room. As you begin to look around you notice a vast array of monitoring screens. Information is displayed through a constantly updating series of graphs and charts. Some display information about the current composition of the ships air. Others show information regarding supply levels and other vital statistics about the ship and crew. Below what seems to be the main information screen is a series are large buttons. One button says 'Alert Crew' while the other says 'Suspend Gravity'. Next to the entrance to the Station Control Room from the Busy Hallway is a short passageway way marked 'Navigation'. Directly across the room is a door labeled 'E-Gen Plant'.",
+    "long_description": "You have found your way into the Station Control Room. As you begin to look around you notice a vast array of monitoring <SCREENS>. Information is displayed through a constantly updating series of graphs and <CHARTS>. Some display information about the current composition of the ships air. Others show information regarding supply levels and other vital statistics about the ship and crew. Below what seems to be the main information <SCREENS> is a series are large buttons. One button says 'Alert Crew' while the other says 'Suspend Gravity'. Next to the entrance to the Station Control Room from the Busy Hallway is a short passageway way marked 'Navigation'. Directly across the room is a door labeled 'E-Gen Plant'.",
     "short_description": [
                           "You are in the Station Control Room. On the main control panel is an 'Alert Crew' and a 'Suspend Gravity' button. There are three exits from this room. The first leads to the Busy Hallway, second to the Navigation Control Room, and the third to the Energy Generation Plant.",
                           "Station Control Room short 2",
@@ -9,15 +9,7 @@
     "which_short": 0,
     "inventory_list": [
       {
-        "description": "this is an alien plant",
-        "exit": "None",
-        "name": "plant",
-        "room_desc": "None",
-        "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
+        "description": "this key has a label on it that says 'Escape pod'. Why would an escape pod need a key?",
         "exit": "None",
         "name": "key",
         "room_desc": 2,
@@ -28,8 +20,8 @@
     "exit_names": {"west": "Busy Hallway", "south": "Navigation Control Room", "east": "Energy Generation Plant"},
     "exit_locks": {"west":false, "south":false, "east":false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "screens": "One of the screens shows a list of ships to dock today. Towards the end of the list is the USG Ishimura. If you can't find a plasma cutter on board this station it would be a really good idea to not be here when that ship arrives.",
+      "charts": "The charts note the maintenance of the various sections of the station. The good news is that it looks like the Escape Pod seems to be in good condition. The bad news is the self-service section of the Mess Hall isn't exactly up to code. You didn't try the food did you?"
     },
     "feature2_keywords": [],
     "examinable_objects": {}

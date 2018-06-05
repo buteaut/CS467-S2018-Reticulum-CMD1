@@ -1,35 +1,18 @@
 {
     "room_name": "Space",
-    "long_description": "Well you’re ‘here’ which is really nowhere. Literally, you are surrounded by the emptiness of Space. Floating here between the Space Near EVA Chamber and Space Near Escape Pod. Oh that Pod you saw sticking out from the ship? Yup, definitely the Escape Pod. From this closer distance you can see it strategically placed at the end of the ship, ready to jettison its occupant away into the great yonder! As you float through this region you notice that there are two buttons on your spacesuit arm. One button is Red, the other is Green. Both seem to have a descriptive note above them. Hm might be worth taking a closer look.",
+    "long_description": "Well you’re ‘here’ which is really nowhere. Literally, you are surrounded by the <EMPTINESS> of Space. Floating here between the Space Near EVA Chamber and Space Near Escape Pod. Oh that Pod you saw sticking out from the station? Yup, definitely the Escape Pod. From this closer distance you can see it strategically placed at the end of the station, ready to jettison its occupant away into the great yonder! In the distance you can see several <LIGHTS> blinking in a rhythmic fasion.",
     "short_description": [
-                          "You are back in Space, the emptiness between the Space Near EVA Chamber and the Space Near Escape Pod. You again notice the Red and Green buttons on your suit. Do something! You don’t want to float here forever.",
+                          "You are back in Space, the emptiness between the Space Near EVA Chamber and the Space Near Escape Pod. You don’t want to float here forever.",
                           "Space Near EVA Chamber short 2",
                           "Space Near EVA Chamber short 3"
                           ],
     "which_short": 0,
-    "inventory_list": [
-      {
-        "description": "this is an alien plant",
-        "exit": "None",
-        "name": "plant",
-        "room_desc": "None",
-        "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
-      }
-                       ],
+    "inventory_list": [],
   "exit_names": {"south":  "space near eva chamber", "east": "Space Near Escape Pod"},
     "exit_locks": {"south":  false, "east": false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "emptiness": "Floating here without the loud bustle of the station all around you is a vast and infinitely relaxing nothing. No expectations, no responsibilities, just time to ponder. You decide to float for a little while longer before getting back to work.",
+      "lights": "Watching the lights flash you find yourself feeling content and relaxed. Maybe finding a life for yourself out here wouldn't be so bad."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

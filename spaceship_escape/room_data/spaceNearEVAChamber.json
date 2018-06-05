@@ -1,35 +1,18 @@
 {
     "room_name": "Space Near EVA Chamber",
-    "long_description": "I’m assuming this might be your first time in outer-space? If it is congratulations! Take a moment to let the moment sink in. Ok good? Now lets see, where are we, ah yes, you are in the Space Near the EVA Chamber. Behind you is the hatch which leads back into the EVA Prep Chamber. The hatch is closed but you see a button next to the hatch. Ahead of you lies the vast darkness of space. However, you see that not far away, although separated by a considerable distance is a protruding Pod sticking out from the end of the spaces ship. It looks interesting, you may want to find a way to head in that direction!",
+    "long_description": "I’m assuming this might be your first time in outer-space? If it is congratulations! Take a moment to let the moment sink in. Ok good? Now lets see, where are we, ah yes, you are in the Space Near the EVA Chamber. Behind you is the hatch which leads back into the EVA Prep Chamber. The hatch is closed but you see a <BUTTON> next to the hatch. Ahead of you lies the vast darkness of space. However, you see that not far away, although separated by a considerable distance is a protruding Pod sticking out from the end of the spaces ship. It looks interesting, you may want to find a way to head in that direction!",
     "short_description": [
-                          "You are now in the Space Near EVA Chamber. Below is the hatch to the EVA Prep Chamber, and a small button. In the distance you can see a Pod sticking out from the end of the alien’s ship.",
+                          "You are now in the Space Near EVA Chamber. Below is the hatch to the EVA Prep Chamber, and a small <BUTTON>. In the distance you can see a Pod sticking out from the end of the alien’s ship.",
                           "Space Near EVA Chamber short 2",
                           "Space Near EVA Chamber short 3"
                           ],
     "which_short": 0,
-    "inventory_list": [
-      {
-        "description": "this is an alien plant",
-        "exit": "None",
-        "name": "plant",
-        "room_desc": "None",
-        "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
-      }
-                       ],
+    "inventory_list": [],
     "exit_names": {"south": "EVA Prep Chamber", "north": "Space"},
     "exit_locks": {"south":false, "north":false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "button": "Unable to resist the calling of an unlabeled button you press it. A very loud bang reverberates throughout the hull of the station. You really hope that you won't have to pay for the repairs. Glancing around to see if anyone noticed you see several <DRD>s roaming the exterior of the station.",
+      "DRD": "The diagnostic repair drones scurry around the hull of the station on small magnetic tracks searching for the source of the damage. It might be a good idea to leave the scene of the crime soon."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

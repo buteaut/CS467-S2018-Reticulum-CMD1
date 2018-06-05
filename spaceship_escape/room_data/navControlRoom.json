@@ -1,35 +1,27 @@
 {
     "room_name": "Navigation Control Room",
-    "long_description": "You have now entered the Navigation Control Room. A quick scan of the room reveals an alien sleeping while slouched in front of some sort of monitoring screen. Another thing you have come to realize on this journey is that sleeping on the job is a truly universal phenomenon. Next to the sleeping alien is a complex row of control structures including screens, buttons, and switches. Just above these structures is a large rectangular window that look out to space. From this vantage point you can also see some other parts of the spaceship. In a corner of the room there is a long rectangular desk covered in what appears to be sheets of paper almost as big as the desk itself. Devices reminiscent of pencils and straight edges are scattered on top of these sheets.",
+    "long_description": "You have now entered the Navigation Control Room. A quick scan of the room reveals an alien sleeping while slouched in front of some sort of monitoring screen. Another thing you have come to realize on this journey is that sleeping on the job is a truly universal phenomenon. Next to the sleeping alien is a complex row of control structures including screens, buttons, and switches as well as a large <DESK> with a mountain of paperwork stacked on it. Just above these structures is a large rectangular window that look out to space. From this vantage point you can also see some other parts of the spaceship. In a corner of the room there is a long rectangular desk covered in what appears to be sheets of <PAPER> almost as big as the desk itself. Devices reminiscent of pencils and straight edges are scattered on top of these sheets.",
     "short_description": [
-                          "You are in the Navigation Control Room. There is a large desk with papers on the top. The one exit from this room leads to the Station Control Room.",
+                          "You are in the Navigation Control Room. There is a large <DESK> with papers pecariously on the top. On the other side of the room is what looks like a drafter's table with one large <PAPER> covering it. The one exit from this room leads to the Station Control Room.",
                           "Navigation Control Room short 2",
                           "Navigation Control Room short 3"
                           ],
     "which_short": 0,
     "inventory_list": [
       {
-        "description": "this is an alien plant",
+        "description": "this is a map of the galaxy. It seems to notice that it is being observed and plays the advertising jingle for Fruity Oaty Bars.",
         "exit": "None",
-        "name": "plant",
+        "name": "map",
         "room_desc": "None",
         "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
+        "use_desc": "You look at the datapad labeled map and the display begins to show the stars of the local cluster. As you focus your eyes on a single star reviews begin to popup for buisnesses local to that system."
       }
                        ],
   "exit_names": {"north": "Station Control Room"},
     "exit_locks": {"north": false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "paper": "A thorough examination of the paper reveals it to be a technical drawing so very boring it makes you yearn for a lunch and learn meeting where you can have a free lunch while ignoring a vendor's sales pitch.",
+      "desk": "The papers stacked impossibly begin to shift at your approach. Visions of a death from 1000 paper cuts fill your mind and you wisely choose to back away slowly."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

@@ -1,35 +1,18 @@
 {
     "room_name": "Busy Hallway",
-    "long_description": "So you left the Mess Hall through the passageway? Well of course you did because now your here. Deep eh? The laws of causality still apply on this ship. Well at least for now… Wow this space is packed with aliens going in both directions, towards and away from the Mess Hall. There is actually a <WATER COOLER> in a little nook on the side of the hallway. Two alien’s seem to be having an animated conversation, you imagine what it could be about. As you peer further down the hall, trying to be as inconspicuous as possible you see that there are no other doors or openings along either side of the hallway. The only exits are the passage to the Mess Hall and a passage to another room, which you learn from eavesdropping is the Station Control Room. Oh no, aliens are starting to look at you funny. In order to proceed you may need to look busy!",
+    "long_description": "So you left the Mess Hall through the passageway? Well of course you did because now your here. Deep eh? The laws of causality still apply on this ship. Well at least for now… Wow this space is packed with aliens going in both directions, towards and away from the Mess Hall. There is actually a <WATER COOLER> in a little nook on the side of the hallway. Two alien’s seem to be having an animated conversation, you imagine what it could be about. As you peer further down the hall, trying to be as inconspicuous as possible you see that there are no other doors or openings along either side of the hallway. The only exits are the passage to the Mess Hall and a passage to another room, which you learn from eavesdropping is the Station Control Room. A large group of beings are blocking the entire doorway having an animated discussion of something called blernsball. They refuse to move out of the way to let others pass.",
     "short_description": [
-                          "You are in the Busy Hallway connecting the Mess Hall and the Station Control Room. This is a main passageway in the ship so there are bound to be plenty of aliens around. You see aliens talking by the <WATER COOLER>. In order to proceed safely, be sure to make yourself appear busy.",
-                          "Busy Hallway short 2",
+                          "You are in the Busy Hallway connecting the Mess Hall and the Station Control Room. This is a main passageway in the ship so there are bound to be plenty of aliens around. You see aliens talking by the <WATER COOLER>. The conversation about blernsball loudly continues and you begin to wonder just how long of a break they have before they need to get back to their posts.",
+                          "The hallway is filled with beings moving back and forth in an efficient buisnesslike manner. Apparently you're act of being a supervisor looking for someone to punish was effective. None of the exits are being blocked, the <WATER COOLER> is deserted, and you think they even cleaned the grim off the walls around the <POSTER>.",
                           "Busy Hallway short 3"
                           ],
     "which_short": 0,
-    "inventory_list": [
-      {
-        "description": "this is an alien plant",
-        "exit": "None",
-        "name": "plant",
-        "room_desc": "None",
-        "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
-      }
-                       ],
+    "inventory_list": [],
     "exit_names": {"west": "Mess Hall", "east": "Station Control Room"},
-    "exit_locks": {"west":false, "east":false},
+    "exit_locks": {"west":false, "east":true},
     "feature1_keywords": {
       "water cooler": "You listen closely to the Aliens talking around the water cooler. In addition to finding out that 'Jerry' is having maritial issues, you hear a mention of the 'Escape Pod' being on the far East end of the ship",
-      "desk": "Opening the desk reveals nothing of note."
+      "poster": "Looking at the poster it appears to be one of those generic informational posters about worker's rights that HR is required to put up. Interestingly, most of it has been redacted and now if read as it appears the poster strongly implies that the employer has the right to dock workers pay for mandated holidays."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

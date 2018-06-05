@@ -1,35 +1,27 @@
 {
     "room_name": "Energy Generation Plant",
-    "long_description": "Upon entering this space you are immediately greeted by a low buzzing sounds and a luminous green glow emanating from five tall pilar-like structures. You are nowhere else but the ships's Energy Generation Plant. It is here that the massive amounts of energy needed to traverse the galaxy, and keep the aliens alive and comfortable, is generated. Within each of the glowing pillars is a Glubtomuim reactor. Using nothing but save, abundant, every day Glubtomium, these devices generate all the power the aliens will ever need. Maybe don't stand too close to them OK? Directly behind you is the passage back to the Station Control Room. Across the room is a heavy door labeled 'EVA'. On the wall across from the Glubtomium reactors is a much smaller door. On the front of this smaller door is a picture of what reminds you of a cactus on Earth, maybe it's a passage to New Mexico!",
+    "long_description": "Upon entering this space you are immediately greeted by a low buzzing sounds and a luminous green glow emanating from five tall pilar-like structures. You are nowhere else but the ships's Energy Generation Plant. It is here that the massive amounts of energy needed to traverse the galaxy, and keep the aliens alive and comfortable, is generated. Within each of the glowing <PILLARS> is a Glubtomuim reactor. Using nothing but save, abundant, every day Glubtomium, these devices generate all the power the aliens will ever need. Maybe don't stand too close to them OK? Directly behind you is the passage back to the Station Control Room. Across the room is a heavy door labeled 'EVA'. On the wall across from the Glubtomium reactors is a much smaller door. On the front of this smaller door is a picture of what reminds you of a cactus on Earth, maybe it's a passage to New Mexico!",
     "short_description": [
-                          "You are in the Energy Generation Plant. Amid the glow of the Glubtomium reactors you see the two exits. Exit one, the large door labeled 'EVA', and exit two, the small door with the 'cactus' on it.",
+                          "You are in the Energy Generation Plant. Amid the glow of the <PILLARS> that make up the Glubtomium reactors you see the two exits. Exit one, the large door labeled 'EVA', exit two, the small door with the 'cactus' on it, and finally exit three, the passage leading to the Station Control Room.",
                           "Energy Generation Plant short 2",
                           "Energy Generation Plant short 3"
                           ],
     "which_short": 0,
     "inventory_list": [
       {
-        "description": "this is an alien plant",
+        "description": "this is a fire ectinguisher. Operation of it seems simple. The label says: 1) Pull the pin  2) Aim nozzle at the base of the fire 3) Squeeze trigger and sweep nozzle back and forth. Note, use in a non-fire situation will result in immediate termination.",
         "exit": "None",
-        "name": "plant",
+        "name": "extinguisher",
         "room_desc": "None",
         "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
+        "use_desc": "You pull the pin on the extinguisher and squeeze the trigger. Sensing a lack of fire the extinguisher alerts the authorities to your location. You get the feeling that this was a bad idea."
       }
                        ],
     "exit_names": {"west": "Station Control Room", "north": "Plant Lab", "east": "EVA Prep Chamber"},
     "exit_locks": {"west":false, "north":false, "east":false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "pillars": "As you get closer to the pillars the hum of the ship begins to grow louder. With each step closer you feel the vibrations reverberate more strongly in your head. Closer still and your vision begins to dim. Shortly before you pass out you see a <SERVITOR> approaching you. A short while later you wake up near the entrance to room with the detritus of a used anti-radion kit nearby.",
+      "servitor": "The servitor at the back of the room appears to be an amalgamation of man and machine which is specifically equiped to keep this vital section of the station operating at maximum efficiency. He also appears to be able to protect the room against hostile intentions."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

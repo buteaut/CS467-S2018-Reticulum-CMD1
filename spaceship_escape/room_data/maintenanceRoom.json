@@ -1,6 +1,6 @@
 {
     "room_name": "Maintenance Room",
-    "long_description": "So where did the small door from the Loading Dock lead you to? Wait for it...ok, its really not the exciting..or is it? You are now in the Maintenance Room. As you walk around the space, you pass racks and racks or miscellaneous materials and supplies. Some look familiar, there are coils of wire and electrical connectors, while other’s are definitely alien. There are a few jars filled with a glowing substance which looks like the Glubtomium from the Energy Generation Plant. Don’t worry its completely safe...but eh maybe don’t stand that close. You begin to think that there may be some useful items in the room to help you in your escape! As you walk around you notice three things in particular, a handheld toolset, a fire extinguisher, and stack of barrels which you cannot see inside. Amid the clutter of the room, you can see the exit to the Loading Dock behind you.",
+    "long_description": "So where did the small door from the Loading Dock lead you to? Wait for it...ok, its really not the exciting..or is it? You are now in the Maintenance Room. As you walk around the space, you pass racks and racks or miscellaneous materials and <SUPPLIES>. Some look familiar, there are coils of wire and electrical connectors, while other’s are definitely alien. There are a few jars filled with a glowing substance which looks like the Glubtomium from the Energy Generation Plant. Don’t worry its completely safe...but eh maybe don’t stand that close. You begin to think that there may be some useful items in the room to help you in your escape! As you walk around you notice three things in particular, a handheld toolset and stack of <BARRELS> which you cannot see inside. Amid the clutter of the room, you can see the exit to the Loading Dock behind you.",
     "short_description": [
                           "Welcome back to the Maintenance Room. Here you can see a number of racks containing supplies for the alien’s ship. The room is cluttered so be careful! There is one door back to the Loading Dock.",
                           "Maintenance Room short 2",
@@ -9,27 +9,19 @@
     "which_short": 0,
     "inventory_list": [
       {
-        "description": "this is an alien plant",
+        "description": "these tools have oversized grips and buttons as if they were designed to be used with heavy gloves. They look like they are used for work on large equipment.",
         "exit": "None",
-        "name": "plant",
-        "room_desc": "None",
-        "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
+        "name": "tools",
+        "room_desc": "2",
+        "room_name": "Space Near Escape Pod",
+        "use_desc": "Utilizing the tools you wrench open the maintenance cover on the docking clamps and access the system overrides. Caution lights strobe as the clamps release the docked ship."
       }
                        ],
   "exit_names": {"north": "Loading Dock"},
     "exit_locks": {"north": false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "supplies": "Examining the supplies you find they are largely cleaning supplies, useless to you. A closer look reveals each piece has a label on it stating it is the property of Roger Wilco.",
+      "barrels": "The label on the barrels state they are filled with methylamine. Best to leave these alone."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

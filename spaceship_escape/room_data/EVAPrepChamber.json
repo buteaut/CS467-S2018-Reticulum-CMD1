@@ -1,35 +1,27 @@
 {
     "room_name": "EVA Prep Chamber",
-    "long_description": "As the narrator of this adventure I’d like to welcome you to the alien’s Extra Vehicular Activities Prep Chamber. Whew thats a mouthful, from now on lets just call it the EVA Prep Chamber, k? Just after you enter you notice that the door quickly closed behind you and makes a tight seal with the door frame. Lucky for the rest of the crew, because on one wall of the room is a hatch labeled ‘Space’. Now your starting to get it, this is the space used to prepare for missions outside of the safety of the ship. On the wall you see a row of alien space suits hanging neatly in a line. You see one that may possibly fit you. Good to know in case you want to venture outside the ship! The rest of this space is very sparse, you realize this is because the room is subject to the vacuum of space when the hatch to outer-space is opened. You take note of the two sturdy doors on either side of the space labeled Energy Generation Plant and Loading Dock.",
+    "long_description": "As the narrator of this adventure I’d like to welcome you to the alien’s Extra Vehicular Activities Prep Chamber. Whew thats a mouthful, from now on lets just call it the EVA Prep Chamber, k? Just after you enter you notice that the door quickly closed behind you and makes a tight seal with the door frame. Lucky for the rest of the crew, because on one wall of the room is a hatch labeled ‘Space’. Now your starting to get it, this is the space used to prepare for missions outside of the safety of the ship. On the wall you see a row of alien space suits hanging neatly in a line. You see one that may possibly fit you. Good to know in case you want to venture outside the ship! On the opposite wall is a <DIAGRAM> and a <CONSOLE>. The rest of this space is very sparse, you realize this is because the room is subject to the vacuum of space when the hatch to outer-space is opened. You take note of the two sturdy doors on either side of the space labeled Energy Generation Plant and Loading Dock.",
     "short_description": [
-                          "You are now back in the EVA Prep chamber. A row of spacesuits are hanging in a line on one side of the door. At each end of the room is a heavy door. One leads to the Energy Generation Plant, while the other leads to the Loading Dock. A hatch to the vast nothingness of outer-space is also found here.",
+                          "You are now back in the EVA Prep chamber. A row of spacesuits are hanging in a line on one side of the door. On the opposite wall is a <DIAGRAM> and a <CONSOLE>. At each end of the room is a heavy door. One leads to the Energy Generation Plant, while the other leads to the Loading Dock. A hatch to the vast nothingness of outer-space is also found here.",
                           "EVA Prep Chamber short 2",
                           "EVA Prep Chamber short 3"
                           ],
     "which_short": 0,
     "inventory_list": [
       {
-        "description": "this is an alien plant",
+        "description": "this suit is rated for hazardous environment classes A, B, and E. You're pretty sure that means it is good for space travel. Mostly sure. Yeah definitely probably good for space.",
         "exit": "None",
-        "name": "plant",
+        "name": "suit",
         "room_desc": "None",
         "room_name": "None",
-        "use_desc": "You talk to the plant and wonder if you can sneak it past customs back on Earth"
-      },
-      {
-        "description": "this is the key to the pod",
-        "exit": "None",
-        "name": "key",
-        "room_desc": 2,
-        "room_name": "Escape Pod",
-        "use_desc": "Turning the key in the ignition of the pod you feel the engine beginning to hum to life."
+        "use_desc": "Examining the suit you do not see any obvious defects. The readout on the wrist display shows a fair amount of breathable atmosphere remains in the backpack tanks."
       }
                        ],
     "exit_names": {"west": "Energy Generation Plant", "north": "Space Near EVA Chamber", "east": "Loading Dock"},
     "exit_locks": {"west": false, "north": false, "east": false},
     "feature1_keywords": {
-      "door": "You open the door to reveal a bulkhead... Perhaps it is an aesthetics thing like women's pockets?",
-      "desk": "Opening the desk reveals nothing of note."
+      "diagram": "The diagram has instructions on how to operate the <CONSOLE> as well as a warning in a rather angry looking font that reminds the user to activate the sanitation protocols every time they return from space lest some sort of infection comes aboard killing the entire crew.",
+      "console": "Following the instructions on the <DIAGRAM> the sanitation cycle begins. After 15 minutes of spraying foams and UV lights the all clear is given."
     },
     "feature2_keywords": [],
     "examinable_objects": {}
