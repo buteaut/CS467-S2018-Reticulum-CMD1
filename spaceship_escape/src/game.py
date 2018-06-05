@@ -378,7 +378,6 @@ class Game:
         xy = str(self.xCoord) + str(self.yCoord)
         if parsed_tokens['item'] in self.inventory:
             items = "An examination of " + parsed_tokens['item'] + " reveals " + self.inventory[parsed_tokens['item']].get_description()
-
         elif parsed_tokens['item'] in (self.map[xy]['inventory']):
             items = "An examination of " + parsed_tokens['item'] + " reveals " + self.map[xy]['inventory'][parsed_tokens['item']].get_description()
         # case token is an item but it is not in player's vicinity
@@ -388,6 +387,7 @@ class Game:
         elif parsed_tokens['feature'] in list(self.roomDict[self.map[xy]['name']].toDict()["feature1keys"]):
             items = self.roomDict[self.map[xy]['name']].toDict()["feature1keys"][parsed_tokens['feature']]
             print(list(self.roomDict[self.map[xy]['name']].toDict()["feature1keys"]))
+        # case existing feature but not in current room
         elif parsed_tokens['feature']:
             items = "Unable to locate " + parsed_tokens['feature'] + " in the area. You might have seen that somewhere else on the ship but your mind wanders to your favorite taco stand back on Earth..."
         # case token not an item or feature

@@ -41,7 +41,6 @@ class Room:
         d['which_short'] = self._which_short
         d['inventory'] = {}
         for i in range(0, len(self._inventory_list)):
-            #d['inventory'].append(self._inventory_list[i].toDict())
             d['inventory'][i.get_name()] = i
         d['exits'] = self._exit_names
         d['locks'] = self._exit_locks
