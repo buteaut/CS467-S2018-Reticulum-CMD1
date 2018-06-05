@@ -381,8 +381,21 @@ class Game:
 
         elif parsed_tokens['item'] in (self.map[xy]['inventory']):
             items = "An examination of " + parsed_tokens['item'] + " reveals " + self.map[xy]['inventory'][parsed_tokens['item']].get_description()
-        else:
+        # case token is an item but it is not in player's vicinity
+        elif parsed_tokens['item']:
             items = "Unable to locate " + parsed_tokens['item'] + " on your person or in the area you visualise what you remember it should be. Unfortunately, your mind wanders to your favorite taco stand back on Earth..."
+        # case parsed a feature in current room
+        elif parsed_tokens['feature'] in list(self.roomDict[self.map[xy]['name']].toDict()["feature1keys"]):
+            items = self.roomDict[self.map[xy]['name']].toDict()["feature1keys"][parsed_tokens['feature']]
+            print(list(self.roomDict[self.map[xy]['name']].toDict()["feature1keys"]))
+        elif parsed_tokens['feature']:
+            items = "Unable to locate " + parsed_tokens['feature'] + " in the area. You might have seen that somewhere else on the ship but your mind wanders to your favorite taco stand back on Earth..."
+        # case token not an item or feature
+        else:
+            word_not_found_message = "Unfortunately, the aliens appeared to have slightly damaged your temporal lobe during their somewhat excessive mind probing. You occasionally end up saying things that don't make sense."
+            print()
+            print(textwrap.fill(word_not_found_message, 75))
+            return
         self.game_print(self.map[xy]["description"], None, items)
 
     def take(self, parsed_tokens):
