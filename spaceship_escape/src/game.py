@@ -181,19 +181,15 @@ class Game:
             self.room_feature(parsed_tokens)
         #check if item is in inventory
         elif parsed_tokens['item'] is not None:
-            #pass
             if parsed_tokens['item'] in self.inventory:
                 #print(self.inventory[parsed_tokens['item']])
                 answer = self.inventory[parsed_tokens['item']].use(self.current_room.get_name())
-                #print(answer)
                 if answer == -1:
                     response = "You can't seem to find a way to use the %s here." % (parsed_tokens['item'])
                     self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
                 else:
                     response = answer['use description']
-                    #print(response)
                     if answer['room description'] != "None": #update room description
-                        #print(type(answer['room description']))
                         self.map[str(self.xCoord) + str(self.yCoord)]['description'] = int(answer['room description'])
                         if parsed_tokens['item'] == "tools" and self.current_room.get_name() == "Space Near Escape Pod":
                             self.end_flag["unclamped"] = True
@@ -206,7 +202,6 @@ class Game:
             else:
                 response = "You fantasize about what it would be like to use a %s but alas you do not currently possess one." % (parsed_tokens['item'])
                 self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
-        #game_print(event2)
         else:
             response = "A brilliant idea strikes you! You know exactly how to MacGyver your way back home. As you start " \
                        "to implement your plan you hear the unmistakable sound of a xenomorph crawling through the airducts. " \
@@ -215,7 +210,6 @@ class Game:
         #if item not in inventory event2 declares as much
 
     def room_feature(self, parsed_tokens):
-        #pass
         response = self.current_room.feature(parsed_tokens['feature'])
         if parsed_tokens['feature'] == 'ship' and self.current_room.get_name() == "Escape Pod" and self.end_flag["unclamped"] is True and self.end_flag["started"] is True:
             if self.end_flag["rations"] is False:
@@ -427,9 +421,6 @@ class Game:
             i = self.inventory[parsed_tokens['item']]
             name = str(parsed_tokens['item'])
             item = {name: i}
-            #print(type(i))
-            #print(type(self.map[str(self.xCoord) + str(self.yCoord)]['inventory']))
-            #self.map[str(self.xCoord) + str(self.yCoord)]['inventory'].update(item)
             self.map[str(self.xCoord) + str(self.yCoord)]['inventory'][name] = i
             del self.inventory[parsed_tokens['item']]
             if parsed_tokens['item'] in self.item_flags:
