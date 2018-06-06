@@ -64,7 +64,7 @@ class Game:
         print('What would you like to do?')
         print('New game')
         print('Load game')
-        # print('Walkthrough')
+        print('Walkthrough')
         print('Exit')
         # print('Demo')
 
@@ -72,31 +72,19 @@ class Game:
         command = input('\nType your command: ')
         choice = self.parse(command)
 
-        # helps with testing, DELETE before submitting
-        #print('\nKeywords parsed (for demonstration only):')
-        #for key in choice:
-        #    if choice[key]:
-        #        print(key + ': ' + choice[key])
-        #print()
-
         # call method based on parsed verb if one of menu options
         if choice['verb'] in ['new game', 'load game', 'loadgame', 'walkthrough', 'exit']:
             self.actions[choice['verb']](None)
-        elif choice['verb'] in ['demo']:
-            # print("# Type a command using one of these verbs ('help', 'take', 'look at', 'inventory', 'walkthrough')")
-            # print("# Include a noun such as ('rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard')")
-            # print("# Include a room such as ('north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'lab', 'energy generation', 'sleeping quarters', 'vr chamber', 'holding chamber')")
-            # print('# "Exit" ends the loop')
-            # print("\n# ex. 'Take the plant to the escape pod' or 'LOOKat th loding dock for the kyy' - spelling errors intentional!")
-            print(self.gameText.getTextFromFiles()['demoText'])
+        # elif choice['verb'] in ['demo']:
+        #     print(self.gameText.getTextFromFiles()['demoText'])
 
-            while(True):
-                command = input('\nType a sentence: ')
-                choice = self.parse(command)
-                if choice['verb'] in ['help', 'take', 'look at', 'inventory', 'walkthrough']:
-                    self.actions[choice['verb']](choice)
-                elif choice['verb'] in ['exit']:
-                    break
+        #     while(True):
+        #         command = input('\nType a sentence: ')
+        #         choice = self.parse(command)
+        #         if choice['verb'] in ['help', 'take', 'look at', 'inventory', 'walkthrough']:
+        #             self.actions[choice['verb']](choice)
+        #         elif choice['verb'] in ['exit']:
+        #             break
 
     def look(self):
         # get current coordinates and call game_print()
