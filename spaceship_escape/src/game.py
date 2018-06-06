@@ -64,9 +64,9 @@ class Game:
         print('What would you like to do?')
         print('New game')
         print('Load game')
-        print('Walkthrough')
+        # print('Walkthrough')
         print('Exit')
-        print('Demo')
+        # print('Demo')
 
         # parse player's input
         command = input('\nType your command: ')
@@ -308,9 +308,9 @@ class Game:
                 break
             # end loop
             elif confirmation in no_words:
-                print('Good choice! Let\'s keep going.\n')
+                print('\nGood choice! Let\'s keep going.\n')
                 break
-            # repeat questoin
+            # repeat question
             else:
                 confirmation = input('\nSorry, I didn\'t understand that. Do you want to load a saved game?: ').lower()
 
