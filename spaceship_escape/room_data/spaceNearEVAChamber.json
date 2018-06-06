@@ -11,8 +11,8 @@
     "exit_names": {"south": "EVA Prep Chamber", "north": "Space"},
     "exit_locks": {"south":false, "north":false},
     "feature1_keywords": {
-      "button": "Unable to resist the calling of an unlabeled button you press it. A very loud bang reverberates throughout the hull of the station. You really hope that you won't have to pay for the repairs. Glancing around to see if anyone noticed you see several <DRD>s roaming the exterior of the station.",
-      "DRD": "The diagnostic repair drones scurry around the hull of the station on small magnetic tracks searching for the source of the damage. It might be a good idea to leave the scene of the crime soon."
+      "button": "Unable to resist the calling of an unlabeled button you press it. A very loud bang reverberates throughout the hull of the station. You really hope that you won't have to pay for the repairs. Glancing around to see if anyone noticed you see several <DRDS> roaming the exterior of the station.",
+      "drds": "The diagnostic repair drones scurry around the hull of the station on small magnetic tracks searching for the source of the damage. It might be a good idea to leave the scene of the crime soon."
     },
     "feature2_keywords": [],
     "examinable_objects": {}

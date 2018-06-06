@@ -49,6 +49,7 @@ class Game:
             'take': self.take,
             'pick up': self.take,
             'grab': self.take,
+            'drop': self.take,
             'use': self.use_item,
             'exit': self.exit_game,
             'walkthrough': self.walkthrough
@@ -68,10 +69,22 @@ class Game:
         command = input('\nType your command: ')
         choice = self.parse(command)
 
+        # helps with testing, DELETE before submitting
+        #print('\nKeywords parsed (for demonstration only):')
+        #for key in choice:
+        #    if choice[key]:
+        #        print(key + ': ' + choice[key])
+        #print()
+
         # call method based on parsed verb if one of menu options
         if choice['verb'] in ['new game', 'load game', 'loadgame', 'walkthrough', 'exit']:
-            self.actions[choice['verb']]()
+            self.actions[choice['verb']](None)
         elif choice['verb'] in ['demo']:
+            # print("# Type a command using one of these verbs ('help', 'take', 'look at', 'inventory', 'walkthrough')")
+            # print("# Include a noun such as ('rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard')")
+            # print("# Include a room such as ('north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'lab', 'energy generation', 'sleeping quarters', 'vr chamber', 'holding chamber')")
+            # print('# "Exit" ends the loop')
+            # print("\n# ex. 'Take the plant to the escape pod' or 'LOOKat th loding dock for the kyy' - spelling errors intentional!")
             print(self.gameText.getTextFromFiles()['demoText'])
 
             while(True):
@@ -246,6 +259,10 @@ class Game:
                     self.look()
                 elif choice['verb'] == 'loadgame':
                     self.load()
+                elif choice['verb'] == 'walkthrough':
+                    self.clearscreen()
+                    print('For a detailed walkthrough please call our hint line (900)370-5583 at just $0.75 a minute! Alternatively, enter the following commands to complete the game:')
+                    print('N, take rations, W, take clipboard, E, E, use clipboard, E, take key, S, take Map, N, E, E, take suit, E, S, take tools, N, W, N, N, E, use tools, W, S, S, E, N, use key, use ship\n\n')
                 else:
                     self.actions[choice['verb']](choice)
             # if no verb simply go to designated room
@@ -264,7 +281,7 @@ class Game:
         save.saveGame(self)
         self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]["description"], None,"Game saved.")
 
-    def load(self):
+    def load(self, parsed_tokens):
         # get confirmation from player
         confirmation = input('\nAre you sure you want to load your saved game?: ').lower()
         yes_words = ['y', 'yes', 'sure', 'yep', 'ok', 'yeah', 'yea', 'uh huh']
@@ -341,7 +358,7 @@ class Game:
         else:
             os.system('clear')
 
-    def startup(self):
+    def startup(self, parsed_tokens):
         self.xCoord = 3
         self.yCoord = 1
         self.load_room(self.map["31"]["name"])
@@ -357,12 +374,10 @@ class Game:
         print(self.gameText.getTextFromFiles()['helpText'])
 
     def walkthrough(self, parsed_tokens):
-        walkthrough_message1 = 'For a detailed walkthrough please call our hint line (900)370-5583 at just $0.75 a minute! Alternatively, enter the following commands to complete the game:'
-        walkthrough_message2 = 'N, take rations, W, take clipboard, E, E, use clipboard, E, take key, S, take Map, N, E, E, take suit, E, S, take tools, N, W, N, N, E, use tools, W, S, S, E, N, use key, use ship'
-        print()
-        print(textwrap.fill(walkthrough_message1, 75), '\n')
-        print(textwrap.fill(walkthrough_message2, 75))
-
+        self.clearscreen()
+        print('For a detailed walkthrough please call our hint line (900)370-5583 at just $0.75 a minute! Alternatively, enter the following commands to complete the game:')
+        print('N, take rations, W, take clipboard, E, E, use clipboard, E, take key, S, take Map, N, E, E, take suit, E, S, take tools, N, W, N, N, E, use tools, W, S, S, E, N, use key, use ship\n\n')
+        self.menu()
 
     def get_inventory(self, parsed_tokens):
         # create list of keys from inventory dict
@@ -380,27 +395,17 @@ class Game:
 
     def look_at(self, parsed_tokens):
         xy = str(self.xCoord) + str(self.yCoord)
-        if parsed_tokens['item'] in self.inventory:
-            items = "An examination of " + parsed_tokens['item'] + " reveals " + self.inventory[parsed_tokens['item']].get_description()
-        elif parsed_tokens['item'] in (self.map[xy]['inventory']):
-            items = "An examination of " + parsed_tokens['item'] + " reveals " + self.map[xy]['inventory'][parsed_tokens['item']].get_description()
-        # case token is an item but it is not in player's vicinity
-        elif parsed_tokens['item']:
-            items = "Unable to locate " + parsed_tokens['item'] + " on your person or in the area you visualise what you remember it should be. Unfortunately, your mind wanders to your favorite taco stand back on Earth..."
-        # case parsed a feature in current room
-        elif parsed_tokens['feature'] in list(self.roomDict[self.map[xy]['name']].toDict()["feature1keys"]):
-            items = self.roomDict[self.map[xy]['name']].toDict()["feature1keys"][parsed_tokens['feature']]
-            print(list(self.roomDict[self.map[xy]['name']].toDict()["feature1keys"]))
-        # case existing feature but not in current room
-        elif parsed_tokens['feature']:
-            items = "Unable to locate " + parsed_tokens['feature'] + " in the area. You might have seen that somewhere else on the ship but your mind wanders to your favorite taco stand back on Earth..."
-        # case token not an item or feature
-        else:
-            word_not_found_message = "Unfortunately, the aliens appeared to have slightly damaged your temporal lobe during their somewhat excessive mind probing. You occasionally end up saying things that don't make sense."
-            print()
-            print(textwrap.fill(word_not_found_message, 75))
-            return
-        self.game_print(self.map[xy]["description"], None, items)
+        if parsed_tokens['feature'] is not None:
+            self.room_feature(parsed_tokens)
+        if parsed_tokens['item'] is not None:
+            if parsed_tokens['item'] in self.inventory:
+                items = "An examination of " + parsed_tokens['item'] + " reveals " + self.inventory[parsed_tokens['item']].get_description()
+
+            elif parsed_tokens['item'] in (self.map[xy]['inventory']):
+                items = "An examination of " + parsed_tokens['item'] + " reveals " + self.map[xy]['inventory'][parsed_tokens['item']].get_description()
+            else:
+                items = "Unable to locate " + parsed_tokens['item'] + " on your person or in the area you visualise what you remember it should be. Unfortunately, your mind wanders to your favorite taco stand back on Earth..."
+            self.game_print(self.map[xy]["description"], None, items)
 
     def take(self, parsed_tokens):
         player = "You drop the %s." % (parsed_tokens['item'])
@@ -410,6 +415,9 @@ class Game:
             i = self.inventory[parsed_tokens['item']]
             name = str(parsed_tokens['item'])
             item = {name: i}
+            #print(type(i))
+            #print(type(self.map[str(self.xCoord) + str(self.yCoord)]['inventory']))
+            #self.map[str(self.xCoord) + str(self.yCoord)]['inventory'].update(item)
             self.map[str(self.xCoord) + str(self.yCoord)]['inventory'][name] = i
             del self.inventory[parsed_tokens['item']]
             if parsed_tokens['item'] in self.item_flags:

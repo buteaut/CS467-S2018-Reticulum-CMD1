@@ -16,10 +16,10 @@ class Parser:
         self.stop_words = self.stop_letters + ['ourselves', 'hers', 'between', 'yourself', 'but', 'again', 'there', 'about', 'once', 'during', 'out', 'very', 'having', 'with', 'they', 'own', 'an', 'be', 'some', 'for', 'do', 'its', 'yours', 'such', 'into', 'of', 'most', 'itself', 'other', 'off', 'is', 'am', 'or', 'who', 'as', 'from', 'him', 'each', 'the', 'themselves', 'until', 'below', 'are', 'we', 'these', 'your', 'his', 'through', 'don', 'nor', 'me', 'were', 'her', 'more', 'himself', 'this', 'down', 'should', 'our', 'their', 'while', 'above', 'both', 'to', 'ours', 'had', 'she', 'all', 'no', 'when', 'any', 'before', 'them', 'same', 'and', 'been', 'have', 'in', 'will', 'on', 'does', 'yourselves', 'then', 'that', 'because', 'what', 'over', 'why', 'so', 'can', 'did', 'not', 'now', 'under', 'he', 'you', 'herself', 'has', 'just', 'where', 'too', 'only', 'myself', 'which', 'those', 'i', 'after', 'few', 'whom', 't', 'being', 'if', 'theirs', 'my', 'against', 'a', 'by', 'doing', 'it', 'how', 'further', 'was', 'here', 'than']
 
         # list of words that are relevant to the game
-        self.verbs = ['exit', 'look', 'help', 'inventory', 'savegame', 'loadgame', 'save game', 'load game', 'look at', 'go', 'take', 'pick up', 'grab', 'use', 'new game', 'walkthrough', 'demo']
+        self.verbs = ['exit', 'look', 'help', 'inventory', 'savegame', 'loadgame', 'save game', 'load game', 'look at', 'go', 'take', 'pick up', 'grab', 'use', 'new game', 'walkthrough', 'demo', 'drop']
         self.items = ['rations', 'map', 'key', 'plant', 'suit', 'extinguisher', 'tools', 'clipboard']
-        self.features = ['door', 'lamp', 'water cooler', 'clamps', 'ship', 'poster', 'footlocker', 'window', 'screens', 'meals', 'seat', 'button', 'paper', 'charts', 'pillars', 'servitor', 'diagram', 'console', 'DRD', 'emptiness', 'lights', 'supplies', 'barrels', 'loader', 'instruments', 'expanse', 'desk']
-        self.rooms = ['e', 'w', 's', 'n', 'north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'plant lab', 'energy generation', 'crew sleeping quarters', 'sleeping quarters', 'crew sleeping', 'vr chamber', 'holding chamber', 'maintenance room', 'busy hallway', 'eva prep chamber', 'eva prep', 'prep chamber', 'space near escape pod', 'space near eva chamber', 'mess hall', 'space']
+        self.features = ['door', 'desk', 'lamp', 'water cooler', 'clamps', 'ship', 'poster', 'footlocker', 'window', 'screens', 'meals', 'seat', 'button', 'paper', 'charts', 'pillars', 'servitor', 'diagram', 'console', 'drds', 'emptiness', 'lights', 'supplies', 'barrels', 'loader', 'instruments', 'expanse']  # Not complete
+        self.rooms = ['e', 'w', 's', 'n', 'north', 'south', 'east', 'west', 'escape pod', 'loading dock', 'navigation control', 'station control', 'plant lab', 'energy generation', 'crew sleeping quarters', 'sleeping quarters', 'crew sleeping', 'vr chamber', 'virtual reality chamber', 'holding chamber', 'maintenance room', 'busy hallway', 'eva prep chamber', 'eva prep', 'prep chamber', 'space near escape pod', 'space near eva chamber', 'mess hall', 'space']
         self.keywords = self.verbs + self.items + self.features + self.rooms
 
     # parse essential keywords from command
@@ -31,6 +31,8 @@ class Parser:
                 discovered_room.append('space near eva chamber')
             elif 'space near escape pod' in possible_correction:
                 discovered_room.append('space near escape pod')
+            elif 'virtual reality chamber' in possible_correction:
+                discovered_room.append('virtual reality chamber')
 
         # all single and double words
         single_words = [_ for _ in command.lower().split() if _ not in self.stop_words]

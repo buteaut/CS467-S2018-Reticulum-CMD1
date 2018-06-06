@@ -2,7 +2,7 @@
     "room_name": "Maintenance Room",
     "long_description": "So where did the small door from the Loading Dock lead you to? Wait for it...ok, its really not the exciting..or is it? You are now in the Maintenance Room. As you walk around the space, you pass racks and racks or miscellaneous materials and <SUPPLIES>. Some look familiar, there are coils of wire and electrical connectors, while other’s are definitely alien. There are a few jars filled with a glowing substance which looks like the Glubtomium from the Energy Generation Plant. Don’t worry its completely safe...but eh maybe don’t stand that close. You begin to think that there may be some useful items in the room to help you in your escape! As you walk around you notice three things in particular, a handheld toolset and stack of <BARRELS> which you cannot see inside. Amid the clutter of the room, you can see the exit to the Loading Dock behind you.",
     "short_description": [
-                          "Welcome back to the Maintenance Room. Here you can see a number of racks containing supplies for the alien’s ship. The room is cluttered so be careful! There is one door back to the Loading Dock.",
+                          "Welcome back to the Maintenance Room. Here you can see a number of racks containing <SUPPLIES> for the alien’s ship. The room is cluttered with <BARRELS> haphazardly stacked near the door so be careful! There is one door back to the Loading Dock.",
                           "Maintenance Room short 2",
                           "Maintenance Room short 3"
                           ],

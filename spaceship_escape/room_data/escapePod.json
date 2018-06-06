@@ -3,7 +3,7 @@
     "long_description": "You have arrived in the Escape Pod. Congratulations, but are you sure you don't want to extend your stay? I hear there is more galactic stew in the Mess Hall tonight. Anyway, as you look around the first thing you notice are the panoramic windows which encircle this small space. As you look out upon the vast array of stars, you can sense that your home planet is out there waiting for you. Just below this ring of windows there is a set of control <INSTRUMENTS> with numerous switches and buttons. As you look back there appears to be a hatch which reminds you of those from old submarine movies back home. This hatch leads to the Loading Dock where you entered from. As you continue to look around you notice there are very few supplies that would be needed for a long journey. There does not seem to be any sort of navigation system and there does not seem to be a supply of food. There is no mistaking it though, this <SHIP> is your ticket home.",
     "short_description": [
                           "You are back in the Escape Pod. From here you can return to the, Loading Dock. The main control panel of the <SHIP> contains a keyhole and a large panel of <INSTRUMENTS>.",
-                          "The engine of the ship quietly hums. It is practically begging to be taken out into open space.",
+                          "The engine of the <SHIP> quietly hums and the <INSTRUMENTS> blink in a slow semi-rhythm. It is practically begging to be taken out into open space.",
                           "Escape Pod short 3"
                           ],
     "which_short": 0,

@@ -1,9 +1,9 @@
 {
     "room_name": "Space Near Escape Pod",
-    "long_description": "Whoa nelly what a wild ride! You are now floating in the Space Near the Escape Pod. Sorry, just go with it, I can’t always come up with the most fun names, but hey, its descriptive isn’t it? From here you can see the Escape Pod, positioned at the far west end of the station. As you maneuver your way toward the pod you notice a series of <CLAMP>-like objects positioned between the Pod and the station. Hm, you may want to check into those a little more closely! You look back to see the <EXPANSE> of Space.",
+    "long_description": "Whoa nelly what a wild ride! You are now floating in the Space Near the Escape Pod. Sorry, just go with it, I can’t always come up with the most fun names, but hey, its descriptive isn’t it? From here you can see the Escape Pod, positioned at the far west end of the station. As you maneuver your way toward the pod you notice a series of <CLAMPS> positioned between the Pod and the station. Hm, you may want to check into those a little more closely! You look back to see the <EXPANSE> of Space.",
     "short_description": [
-                          "You are back in the Space Near the Escape Pod. You can see the Escape Pod jutting out from the ship below you with the docking <CLAMPS> preventing it from moving.",
-                          "Caution lights still strobe in the Space Near Escape Pod. Looking at the escape pod you can see that there is nothing tethering it anylonger.",
+                          "You are back in the Space Near the Escape Pod. In front of you is the vast <EXPANSE> of space. Turning slightly you can see the Escape Pod jutting out from the ship below you with the docking <CLAMPS> preventing it from moving.",
+                          "Caution lights still strobe in the Space Near Escape Pod. Looking at the escape pod you can see that the <CLAMPS> are not tethering it any longer and it appears free to explore the <EXPANSE> before you.",
                           "Space Near Escape Pod short 3"
                           ],
     "which_short": 0,

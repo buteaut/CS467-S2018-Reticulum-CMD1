@@ -9,7 +9,7 @@
     "which_short": 0,
     "inventory_list": [
       {
-        "description": "this is a fire ectinguisher. Operation of it seems simple. The label says: 1) Pull the pin  2) Aim nozzle at the base of the fire 3) Squeeze trigger and sweep nozzle back and forth. Note, use in a non-fire situation will result in immediate termination.",
+        "description": "this is a fire extinguisher. Operation of it seems simple. The label says: 1) Pull the pin  2) Aim nozzle at the base of the fire 3) Squeeze trigger and sweep nozzle back and forth. Note, use in a non-fire situation will result in immediate termination.",
         "exit": "None",
         "name": "extinguisher",
         "room_desc": "None",

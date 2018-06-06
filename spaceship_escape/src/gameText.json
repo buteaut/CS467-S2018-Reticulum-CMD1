@@ -7,7 +7,6 @@
                  "# ex. 'Take the plant to the escape pod' or 'LOOKat th loding dock for the kyy' - spelling errors intentional!"
     ],
     "helpText" : [
-        "",
         "go <direction or room> -- travel to designated room",
         "help -- displays list of available commands",
         "inventory -- displays contents of inventory",
@@ -15,6 +14,6 @@
         "look -- displays long form description of the current room",
         "look at <feature or object> -- describes the feature or object",
         "take <object> -- place object in inventory",
-        "use <feature> -- displays informaton about feature"
+        " "
     ]
 }
