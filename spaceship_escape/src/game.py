@@ -66,7 +66,6 @@ class Game:
         print('Load game')
         print('Walkthrough')
         print('Exit')
-        # print('Demo')
 
         # parse player's input
         command = input('\nType your command: ')
@@ -74,17 +73,10 @@ class Game:
 
         # call method based on parsed verb if one of menu options
         if choice['verb'] in ['new game', 'load game', 'loadgame', 'walkthrough', 'exit']:
-            self.actions[choice['verb']](None)
-        # elif choice['verb'] in ['demo']:
-        #     print(self.gameText.getTextFromFiles()['demoText'])
-
-        #     while(True):
-        #         command = input('\nType a sentence: ')
-        #         choice = self.parse(command)
-        #         if choice['verb'] in ['help', 'take', 'look at', 'inventory', 'walkthrough']:
-        #             self.actions[choice['verb']](choice)
-        #         elif choice['verb'] in ['exit']:
-        #             break
+            if choice['verb'] in ['loadgame', 'load game']:
+                self.load_from_menu()
+            else:
+                self.actions[choice['verb']](None)
 
     def look(self):
         # get current coordinates and call game_print()
@@ -298,6 +290,27 @@ class Game:
             elif confirmation in no_words:
                 print('\nGood choice! Let\'s keep going.\n')
                 break
+            # repeat question
+            else:
+                confirmation = input('\nSorry, I didn\'t understand that. Do you want to load a saved game?: ').lower()
+
+    def load_from_menu(self):
+        # get confirmation from player
+        confirmation = input('\nAre you sure you want to load your saved game?: ').lower()
+        yes_words = ['y', 'yes', 'sure', 'yep', 'ok', 'yeah', 'yea', 'uh huh']
+        no_words = ['n', 'no', 'not really', 'nope']
+
+        while(True):
+            # load game
+            if confirmation in yes_words:
+                load = GameSaver()
+                self = load.loadGame(self)
+                self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]["description"], None, "Game loaded.")
+                self.game_loop()
+                break
+            # end loop
+            elif confirmation in no_words:
+                self.menu()
             # repeat question
             else:
                 confirmation = input('\nSorry, I didn\'t understand that. Do you want to load a saved game?: ').lower()
