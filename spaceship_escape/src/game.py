@@ -45,12 +45,15 @@ class Game:
             'loadgame': self.load,
             'load game': self.load,
             'look at': self.look_at,
+            'examine': self.look_at,
             'go': self.travel,
             'take': self.take,
             'pick up': self.take,
             'grab': self.take,
             'drop': self.take,
             'use': self.use_item,
+            'try': self.use_item,
+            'consume': self.use_item,
             'exit': self.exit_game,
             'walkthrough': self.walkthrough
         }
@@ -258,11 +261,19 @@ class Game:
                 if choice['verb'] == 'look':
                     self.look()
                 elif choice['verb'] == 'loadgame':
-                    self.load()
+                    self.load(choice)
                 elif choice['verb'] == 'walkthrough':
                     self.clearscreen()
                     print('For a detailed walkthrough please call our hint line (900)370-5583 at just $0.75 a minute! Alternatively, enter the following commands to complete the game:')
                     print('N, take rations, W, take clipboard, E, E, use clipboard, E, take key, S, take Map, N, E, E, take suit, E, S, take tools, N, W, N, N, E, use tools, W, S, S, E, N, use key, use ship\n\n')
+                elif choice['verb'] == 'consume':
+                    print("test eat 1")
+                    if choice['item'] == 'rations' and choice['item'] in self.inventory:
+                        print("test eat 2")
+                        self.use_item(choice)
+                    else:
+                        response = "You aren't hungry enough to try to eat that."
+                        self.game_print(self.map[str(self.xCoord) + str(self.yCoord)]['description'], None, response)
                 else:
                     self.actions[choice['verb']](choice)
             # if no verb simply go to designated room
