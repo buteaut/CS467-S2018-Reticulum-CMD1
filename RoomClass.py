@@ -1,4 +1,7 @@
-# define the Room class here
+# File: RoomClass.py
+# Author: Reticulum Team
+# Date: 6-5-18
+# Description: Class that builds rooms.
 
 class RoomNames:
     escapePod               = "Escape Pod"
@@ -49,13 +52,6 @@ class Room:
         d['examinable_objects'] = self._examinable_objects
         return d
 
-
-    def feature1(self):
-        pass
-
-    def feature2(self):
-        pass
-
     def get_name(self):
         return self._room_name
 
@@ -70,12 +66,6 @@ class Room:
 
     def get_inventory(self):
         return self._inventory_list
-
-    def add_to_inventory(self, item_to_add):
-        pass
-
-    def remove_from_inventory(self, item_to_remove):
-        pass
 
     def get_exit_names(self):
         return self._exit_names

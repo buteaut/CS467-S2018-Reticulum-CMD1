@@ -1,3 +1,8 @@
+# File: ParserClass.py
+# Author: Reticulum Team
+# Date: 4-19-18
+# Description: Class that parses input.
+
 # imports
 from itertools import combinations
 import string

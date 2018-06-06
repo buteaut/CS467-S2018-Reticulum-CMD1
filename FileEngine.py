@@ -1,3 +1,8 @@
+# File: FileEngine.py
+# Author: Reticulum Team
+# Date: 6-5-18
+# Description: This is the file where the file engine is defined.
+
 from RoomClass import Room
 from ItemClass import Item
 import json
