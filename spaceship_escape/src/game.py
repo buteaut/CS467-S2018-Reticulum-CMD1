@@ -357,8 +357,12 @@ class Game:
         print(self.gameText.getTextFromFiles()['helpText'])
 
     def walkthrough(self, parsed_tokens):
-        print('For a detailed walkthrough please call our hint line (900)370-5583 at just $0.75 a minute! Alternatively, enter the following commands to complete the game:')
-        print('N, take rations, W, take clipboard, E, E, use clipboard, E, take key, S, take Map, N, E, E, take suit, E, S, take tools, N, W, N, N, E, use tools, W, S, S, E, N, use key, use ship')
+        walkthrough_message1 = 'For a detailed walkthrough please call our hint line (900)370-5583 at just $0.75 a minute! Alternatively, enter the following commands to complete the game:'
+        walkthrough_message2 = 'N, take rations, W, take clipboard, E, E, use clipboard, E, take key, S, take Map, N, E, E, take suit, E, S, take tools, N, W, N, N, E, use tools, W, S, S, E, N, use key, use ship'
+        print()
+        print(textwrap.fill(walkthrough_message1, 75), '\n')
+        print(textwrap.fill(walkthrough_message2, 75))
+
 
     def get_inventory(self, parsed_tokens):
         # create list of keys from inventory dict
