@@ -6,16 +6,24 @@
                  " ",
                  "# ex. 'Take the plant to the escape pod' or 'LOOKat th loding dock for the kyy' - spelling errors intentional!"
     ],
-    "helpText" : [
-        "",
-        "go <direction or room> -- travel to designated room",
-        "help -- displays list of available commands",
-        "inventory -- displays contents of inventory",
-        "loadgame -- loads a previously saved game",
-        "look -- displays long form description of the current room",
-        "look at <feature or object> -- describes the feature or object",
-        "savegame -- save a copy of current game state",
-        "take <object> -- place object in inventory",
-        "walkthrough -- cheat sheet"
-    ]
+  "helpText": [
+    "",
+    "save game -- saves the current game",
+    "loadgame -- loads a previously saved game",
+    "take <object> -- place object in inventory",
+    "pick up <object> -- place object in inventory",
+    "grab <object> -- place object in inventory",
+    "drop <object> -- remove object from inventory",
+    "use <object> -- uses item",
+    "try <object> -- uses item",
+    "consume <object> -- eat item",
+    "exit -- quit game",
+    "go <direction or room> -- travel to designated room",
+    "help -- displays list of available commands",
+    "inventory -- displays contents of inventory",
+    "look -- displays long form description of the current room",
+    "look at <feature or object> -- describes the feature or object",
+    "examine <feature or object> -- describes the feature of object",
+    "walkthrough -- instructions on how to complete the game"
+  ]
 }
