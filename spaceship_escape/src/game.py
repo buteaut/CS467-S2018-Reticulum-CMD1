@@ -311,7 +311,6 @@ class Game:
 
     def game_print(self, description, event1 = None, event2 = None):
         self.clearscreen()
-        #print(self.current_room.get_name())
         print(str.center(self.current_room.get_name(), 80, ' '))
         print()
         exitLocks = self.current_room.get_exit_locks()
@@ -349,7 +348,6 @@ class Game:
             print()
 
     def end_game(self, ending):
-        #pass
         self.clearscreen()
         print(textwrap.fill(self.endings[ending], 75))
         x = input('\nThank you for playing. Press Enter to exit.')
